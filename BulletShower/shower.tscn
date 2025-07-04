@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3qt6u5xkdxkb"]
+
+[ext_resource type="Script" uid="uid://bsbdemb2x3gl1" path="res://BulletShower/bullets.gd" id="1_61i2w"]
+[ext_resource type="Script" uid="uid://cm0w3og5bi6ue" path="res://BulletShower/player.gd" id="2_7tk41"]
+[ext_resource type="Texture2D" uid="uid://d1sbpcal8ekts" path="res://BulletShower/face_happy.png" id="3_27myk"]
+[ext_resource type="Texture2D" uid="uid://mcx826snl48d" path="res://BulletShower/face_sad.png" id="4_2wblh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3whqu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1o75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_27myk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wblh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shower" type="Node2D"]
+
+[node name="Bullets" type="Node2D" parent="."]
+script = ExtResource("1_61i2w")
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("2_7tk41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_3whqu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_o1o75")
+
+[connection signal="body_shape_entered" from="Player" to="Player" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Player" to="Player" method="_on_body_shape_exited"]

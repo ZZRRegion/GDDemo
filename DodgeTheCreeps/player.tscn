@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwylp1y8vfy2f"]
+
+[ext_resource type="Script" uid="uid://84b83w11rkgs" path="res://DodgeTheCreeps/player.gd" id="1_yky7n"]
+[ext_resource type="Texture2D" uid="uid://ftkxr8r4qghp" path="res://DodgeTheCreeps/art/playerGrey_walk1.png" id="2_s3mxi"]
+[ext_resource type="Texture2D" uid="uid://couyhcegeihme" path="res://DodgeTheCreeps/art/playerGrey_walk2.png" id="3_eqrlf"]
+[ext_resource type="Texture2D" uid="uid://b4yyoafu8bi0q" path="res://DodgeTheCreeps/art/playerGrey_up1.png" id="4_ijay3"]
+[ext_resource type="Texture2D" uid="uid://bko65a0nd66st" path="res://DodgeTheCreeps/art/playerGrey_up2.png" id="5_mgufe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1enj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s3mxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eqrlf")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ijay3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mgufe")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4makv"]
+radius = 27.0
+height = 68.0
+
+[sub_resource type="Curve" id="Curve_7ytvn"]
+_data = [Vector2(0.00735295, 0.52809), 0.0, 0.0, 0, 0, Vector2(0.970588, 0.359551), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yhcx4"]
+curve = SubResource("Curve_7ytvn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kr2rs"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_yhcx4")
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_yky7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_v1enj")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4makv")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+amount = 10
+texture = ExtResource("2_s3mxi")
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_kr2rs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

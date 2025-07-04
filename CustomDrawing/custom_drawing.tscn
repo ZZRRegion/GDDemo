@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc28m5wmmhf4u"]
+
+[ext_resource type="Script" uid="uid://dycp6brodrxf7" path="res://CustomDrawing/lines.gd" id="1_ical0"]
+[ext_resource type="Script" uid="uid://cid5xifk0f7sf" path="res://CustomDrawing/rectangles.gd" id="2_px3i8"]
+[ext_resource type="Script" uid="uid://b6ths1iaer0hv" path="res://CustomDrawing/polygons.gd" id="3_5l2dj"]
+
+[node name="CustomDrawing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+current_tab = 0
+
+[node name="Lines" type="Panel" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("1_ical0")
+metadata/_tab_index = 0
+
+[node name="DrawLine" type="Label" parent="TabContainer/Lines"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 172.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0.501961, 1, 0.501961, 1)
+text = "draw_line()
+draw_dashed_line()"
+
+[node name="DrawCircle" type="Label" parent="TabContainer/Lines"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 201.0
+offset_right = 129.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.501961, 1, 0.501961, 1)
+text = "draw_circle()"
+
+[node name="DrawArc" type="Label" parent="TabContainer/Lines"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 305.0
+offset_right = 118.0
+offset_bottom = 328.0
+theme_override_colors/font_color = Color(0.501961, 1, 0.501961, 1)
+text = "draw_arc()"
+
+[node name="Rectangles" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("2_px3i8")
+metadata/_tab_index = 1
+
+[node name="Polygons" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_5l2dj")
+metadata/_tab_index = 2
+
+[node name="Meshes" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Textures" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Text" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Animation" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
