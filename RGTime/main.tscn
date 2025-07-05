@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv43adf44ip5b"]
+
+[ext_resource type="Script" uid="uid://purwmb7pc6gj" path="res://RGTime/main.gd" id="1_50xm1"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_right = 128.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+script = ExtResource("1_50xm1")
+
+[node name="CurTime" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.387
+anchor_bottom = 4.387
+offset_left = 200.0
+offset_top = 248.003
+offset_right = 344.0
+offset_bottom = 271.003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "是发送到发使广大附"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 636.0
+offset_bottom = 91.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "置顶"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "描述："
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "三方斯蒂芬沙发沙发上沙发发放"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
