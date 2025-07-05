@@ -15,10 +15,14 @@ func game_over() -> void:
 	$Music.stop()
 	$HUD.show_game_over()
 	$DeathSound.play()
-
+	$ScoreTimer.stop()
+	$MobTimer.stop()
+	clear_mob()
+func clear_mob():
+	get_tree().call_group("mobs", "queue_free")
 func new_game():
 	score = 0
-	get_tree().call_group("mobs", "queue_free")
+	clear_mob()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	$Music.play()
@@ -47,6 +51,6 @@ func _on_mob_timer_timeout() -> void:
 	
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
-	
+	mob.add_to_group("mobs")
 	add_child(mob)
 	
