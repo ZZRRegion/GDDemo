@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://es8kgtuyml2c"]
+[gd_scene load_steps=5 format=3 uid="uid://es8kgtuyml2c"]
 
 [ext_resource type="PackedScene" uid="uid://cwylp1y8vfy2f" path="res://DodgeTheCreeps/player.tscn" id="1_2g1qm"]
-[ext_resource type="PackedScene" uid="uid://bp4qhadve7nob" path="res://DodgeTheCreeps/HUD.tscn" id="2_55buf"]
+[ext_resource type="Script" uid="uid://bqvitc25xnlfh" path="res://DodgeTheCreeps/main.gd" id="1_55buf"]
+[ext_resource type="PackedScene" uid="uid://bsyq1jlf2lg7a" path="res://DodgeTheCreeps/Mob.tscn" id="2_7agbm"]
 
 [sub_resource type="Curve2D" id="Curve2D_7agbm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 40, 0, 0, 0, 0, 456, 32, 0, 0, 0, 0, 464, 712, 0, 0, 0, 0, 16, 704, 0, 0, 0, 0, 16, 40)
+}
+point_count = 5
 
 [node name="Main" type="Node"]
+script = ExtResource("1_55buf")
+mob_scene = ExtResource("2_7agbm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 480.0
@@ -15,22 +22,29 @@ color = Color(0.219608, 0.372549, 0.380392, 1)
 [node name="Player" parent="." instance=ExtResource("1_2g1qm")]
 
 [node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_7agbm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-
-[node name="HUD" parent="." instance=ExtResource("2_55buf")]
+position = Vector2(16, 40)
+rotation = -0.0181798
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 
-[connection signal="start_game" from="HUD" to="Player" method="new_game"]
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
