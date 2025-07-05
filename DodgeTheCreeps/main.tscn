@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_7agbm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, 40, 0, 0, 0, 0, 456, 32, 0, 0, 0, 0, 464, 712, 0, 0, 0, 0, 16, 704, 0, 0, 0, 0, 16, 40)
+"points": PackedVector2Array(0, 0, 0, 0, 16, 40, 0, 0, 0, 0, 1120, 48, 0, 0, 0, 0, 1120, 680, 0, 0, 0, 0, 16, 680, 0, 0, 0, 0, 16, 40)
 }
 point_count = 5
 
@@ -52,7 +52,7 @@ curve = SubResource("Curve2D_7agbm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(16, 40)
-rotation = -0.0181798
+rotation = 0.00724625
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_rw61b")
