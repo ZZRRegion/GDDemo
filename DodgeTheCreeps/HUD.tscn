@@ -23,7 +23,23 @@ grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_1g8iu")
 theme_override_font_sizes/font_size = 64
-text = "0"
+text = "得分：0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MobNum" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 100.0
+offset_right = 183.0
+offset_bottom = 186.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_1g8iu")
+theme_override_font_sizes/font_size = 64
+text = "敌人数量：0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

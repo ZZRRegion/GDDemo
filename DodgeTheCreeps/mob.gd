@@ -6,9 +6,10 @@ func _ready() -> void:
 	var mob_types = ani2D.sprite_frames.get_animation_names()
 	ani2D.play(mob_types[randi() % mob_types.size()])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	print("移除：{0}".format([self.name]))
 	queue_free()

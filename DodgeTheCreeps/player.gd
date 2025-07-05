@@ -40,6 +40,7 @@ func _on_body_entered(_body):
 	#敌人每次击中玩家时都会发出一个信号。要禁用玩家的碰撞检测，确保不会多次触发hit信号
 	#set_deferred可以安全的禁用形状
 	$CollisionShape2D.set_deferred(&"disabled", true)
+	pass
 
 
 func new_game() -> void:

@@ -1,14 +1,16 @@
 extends Node
 
 @export var mob_scene:PackedScene
-var score
+var score:int = 0
+var nums:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	nums = get_tree().get_nodes_in_group("mobs").size()
+	self.update_data()
 
 
 func game_over() -> void:
@@ -17,13 +19,19 @@ func game_over() -> void:
 	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+func restart() -> void:
+	score = 0
+	nums = 0
+	update_data()
 	clear_mob()
+func update_data() -> void:
+	$HUD.update_nums(nums)
+	$HUD.update_score(score)
 func clear_mob():
 	get_tree().call_group("mobs", "queue_free")
+
 func new_game():
-	score = 0
-	clear_mob()
-	$HUD.update_score(score)
+	restart()
 	$HUD.show_message("Get Ready")
 	$Music.play()
 	$StartTimer.start()
@@ -35,8 +43,6 @@ func _on_start_timer_timeout() -> void:
 
 func _on_score_timer_timeout() -> void:
 	score += 1
-	$HUD.update_score(score)
-
 
 func _on_mob_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
