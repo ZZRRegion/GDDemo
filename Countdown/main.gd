@@ -33,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 	update_time()
 
 func _on_start_time_pressed() -> void:
+	$Timer.paused = false
 	$Timer.start()
 
 
