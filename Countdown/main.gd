@@ -23,6 +23,7 @@ func _notification(what: int) -> void:
 		save_game_data(game_data_path, {"count_time":count_time})
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_window().title = "倒计时"
 	var data = load_game_data(game_data_path)
 	if data.has("count_time"):
 		count_time = data["count_time"]
