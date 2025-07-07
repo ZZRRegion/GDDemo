@@ -1,11 +1,18 @@
 @tool
-extends Node2D
-#region
-# sfsfaf
-#endregion
-## 这是设置的值
-## 这是个很好的例子
-@export var myValue:int = 110
+extends Node
 
-func _process(delta: float) -> void:
-	queue_redraw()
+func _ready() -> void:
+	DisplayServer.window_set_title("hello")
+	pass
+
+func _on_button_pressed() -> void:
+	DisplayServer.beep()
+	pass # Replace with function body.
+
+
+func _on_button_2_pressed() -> void:
+	DisplayServer.dialog_input_text("title", "desc", "萨芬", test)
+	pass # Replace with function body.
+
+func test(txt) -> void:
+	print(txt)

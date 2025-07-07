@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3j54q6pu45fi"]
+
+[ext_resource type="Script" uid="uid://c2u0jvvhdrbup" path="res://Countdown/main.gd" id="1_uvg2v"]
+
+[sub_resource type="Theme" id="Theme_yupvq"]
+default_font_size = 60
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yupvq")
+script = ExtResource("1_uvg2v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Desc" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "倒计时"
+horizontal_alignment = 1
+
+[node name="CountTime" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartTime" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "开始倒计时"
+
+[node name="PauseTime" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "暂停倒计时"
+
+[node name="Timer" type="Timer" parent="."]
+ignore_time_scale = true
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/StartTime" to="." method="_on_start_time_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PauseTime" to="." method="_on_pause_time_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
