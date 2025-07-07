@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 general/text_to_speech=true
 
+[autoload]
+
+ZwGlobal="*res://Global/ZWGlobal.gd"
+
 [display]
 
 window/size/viewport_height=720
