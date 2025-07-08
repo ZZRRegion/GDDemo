@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds3oa5mdgy2l8"]
+
+[ext_resource type="PackedScene" uid="uid://cdklbss1nnb8y" path="res://Planet/Player.tscn" id="1_b8kgq"]
+[ext_resource type="PackedScene" uid="uid://cy7jlxdvjjw7d" path="res://Planet/Planet.tscn" id="2_fyelk"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_b8kgq")]
+position = Vector2(565, 394)
+maxspeed = 200.0
+accel = 150.0
+fricition = 75.0
+
+[node name="Planet" parent="." instance=ExtResource("2_fyelk")]
+position = Vector2(552, 215)
