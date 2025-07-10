@@ -6,22 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://PoderSolar/assets/sprites/items/aerogenerator_top.svg" id="4_3bh8w"]
 [ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/energy_up.svg" id="5_o1o7w"]
 
-[sub_resource type="Animation" id="Animation_ao1sk"]
-resource_name = "idle"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
 [sub_resource type="Animation" id="Animation_o1o7w"]
 length = 0.001
 tracks/0/type = "value"
@@ -35,6 +19,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ao1sk"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3bh8w"]
@@ -61,6 +62,7 @@ texture = ExtResource("4_3bh8w")
 libraries = {
 &"": SubResource("AnimationLibrary_3bh8w")
 }
+autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="Icons" index="0"]
 position = Vector2(0, -50)
