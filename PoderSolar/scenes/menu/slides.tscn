@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bust0edjwkdc"]
+
+[ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://PoderSolar/assets/sprites/menus/play_button.svg" id="1_8gu3f"]
+[ext_resource type="Texture2D" uid="uid://bdhnjejqigjjx" path="res://PoderSolar/assets/sprites/slides/tutorial_overcharge.jpg" id="1_g345w"]
+[ext_resource type="Script" uid="uid://bqjssbewihxw1" path="res://PoderSolar/scenes/menu/slides.gd" id="1_pt3hn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g345w"]
+texture = ExtResource("1_8gu3f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pt3hn"]
+texture = ExtResource("1_8gu3f")
+modulate_color = Color(0.176471, 0.203922, 0.439216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0c15"]
+texture = ExtResource("1_8gu3f")
+
+[node name="Slides" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pt3hn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g345w")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 157.0
+offset_top = -246.0
+offset_right = 368.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_g345w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pt3hn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v0c15")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 750.0
+offset_bottom = 150.0
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 26
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "They have installed[b]solar panels[/b] in the town"

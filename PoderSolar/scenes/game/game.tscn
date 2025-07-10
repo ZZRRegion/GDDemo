@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://dltw6e3wj2a1v"]
+[gd_scene load_steps=5 format=3 uid="uid://dltw6e3wj2a1v"]
 
 [ext_resource type="PackedScene" uid="uid://dpnd6b5joxc26" path="res://PoderSolar/scenes/menu/panel.tscn" id="1_cpr5c"]
+[ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://PoderSolar/assets/sprites/gameplay/sky.svg" id="1_xk6uh"]
+[ext_resource type="Texture2D" uid="uid://c0iub3ipdr73b" path="res://PoderSolar/assets/sprites/gameplay/moon.svg" id="2_2s33e"]
+[ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://PoderSolar/assets/sprites/gameplay/background.svg" id="2_ho6vc"]
 
 [node name="Game" type="Node"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+modulate = Color(0.0470588, 0.14902, 0.301961, 1)
+texture = ExtResource("1_xk6uh")
+centered = false
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(54, 62)
+texture = ExtResource("2_2s33e")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2, 89)
+texture = ExtResource("2_ho6vc")
+centered = false
 
 [node name="Panel" parent="." instance=ExtResource("1_cpr5c")]
 

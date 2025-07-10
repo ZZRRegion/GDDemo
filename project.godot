@@ -23,6 +23,7 @@ general/text_to_speech=true
 
 ZwGlobal="*res://Global/ZWGlobal.gd"
 GameManager="*res://FlappyBird/game_manager.gd"
+PSGamemanager="*res://PoderSolar/scenes/gamemanager.gd"
 
 [display]
 
