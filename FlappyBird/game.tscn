@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ffuhdi2shxa2"]
+
+[ext_resource type="PackedScene" uid="uid://c3bhhmgchh77n" path="res://FlappyBird/Bird.tscn" id="1_8v60n"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Bird" parent="." instance=ExtResource("1_8v60n")]
+position = Vector2(304, 205)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3bhhmgchh77n"]
+
+[ext_resource type="Texture2D" uid="uid://bihbkg7ud8hcl" path="res://FlappyBird/assets/bird1.png" id="1_1ep7x"]
+[ext_resource type="Script" uid="uid://qyj2po0lphnh" path="res://FlappyBird/bird.gd" id="1_cff86"]
+[ext_resource type="Texture2D" uid="uid://caavwymrm56gm" path="res://FlappyBird/assets/bird2.png" id="3_f6vav"]
+[ext_resource type="Texture2D" uid="uid://bi8e50d2hcuo0" path="res://FlappyBird/assets/bird3.png" id="4_r5uwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ep7x"]
+radius = 18.0278
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17osg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1ep7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f6vav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r5uwp")
+}],
+"loop": true,
+"name": &"bird",
+"speed": 5.0
+}]
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_cff86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ep7x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_17osg")
+animation = &"bird"
+autoplay = "bird"
+frame_progress = 0.336203

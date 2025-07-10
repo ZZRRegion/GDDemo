@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://vnb5cvrjkp8x"]
+
+[sub_resource type="GDScript" id="GDScript_rxg2q"]
+script/source = "extends ColorRect
+
+
+func _on_button_pressed() -> void:
+	print(\"C change\")
+	self.color.a = 0
+	await get_tree().create_timer(1).timeout
+	self.color.a = 1
+	pass # Replace with function body.
+"
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 126.0
+offset_right = 222.0
+offset_bottom = 168.0
+text = "点击"
+
+[node name="A" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 88.0
+offset_bottom = 64.0
+color = Color(0, 0.941176, 0, 1)
+
+[node name="B" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 64.0
+color = Color(1, 0.0235294, 0.0235294, 1)
+
+[node name="C" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 23.0
+offset_right = 317.0
+offset_bottom = 63.0
+color = Color(0.0235294, 0.0392157, 1, 1)
+script = SubResource("GDScript_rxg2q")
