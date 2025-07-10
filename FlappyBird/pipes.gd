@@ -15,8 +15,7 @@ func on_game_over()->void:
 	set_process(false)
 func _on_pipe_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bird") and not body.is_dead:
-		print("hit")
-		GameManager.GameOver.emit()
+		GameManager.emit_game_over()
 
 
 func _on_coin_body_entered(body: Node2D) -> void:

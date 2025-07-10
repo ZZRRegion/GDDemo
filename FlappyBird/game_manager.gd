@@ -10,7 +10,9 @@ var score :int = 0
 var game_scene : PackedScene = preload("res://FlappyBird/game.tscn")
 func _ready() -> void:
 	GetScore.connect(add_score)
-	
+
+func emit_game_over() ->void:
+	GameOver.emit()
 func add_score() -> void:
 	score += 1
 
