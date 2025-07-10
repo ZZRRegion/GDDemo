@@ -9,9 +9,6 @@ func _ready() -> void:
 
 func on_game_over()->void:
 	$Timer.stop()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func new_pipes():
 	var pipes = PIPES.instantiate()
