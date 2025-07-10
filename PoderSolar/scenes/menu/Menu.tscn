@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdt51yg0tvlpq"]
+[gd_scene load_steps=13 format=3 uid="uid://bdt51yg0tvlpq"]
 
 [ext_resource type="Script" uid="uid://o6koqouxpyi3" path="res://PoderSolar/scenes/menu/menu.gd" id="1_ivofr"]
 [ext_resource type="Texture2D" uid="uid://cnsyrjbggj5tp" path="res://PoderSolar/assets/sprites/menus/main_menu.svg" id="2_6xtey"]
+[ext_resource type="PackedScene" uid="uid://dltw6e3wj2a1v" path="res://PoderSolar/scenes/game/game.tscn" id="2_e8rus"]
 [ext_resource type="Texture2D" uid="uid://bte75qgd6lnb2" path="res://PoderSolar/assets/sprites/menus/game_title.svg" id="3_hvb8a"]
 [ext_resource type="PackedScene" uid="uid://1tx4fdnvhc74" path="res://PoderSolar/scenes/menu/tree_menu.tscn" id="4_ctqn0"]
 [ext_resource type="PackedScene" uid="uid://b2lm7cl0mpjtf" path="res://PoderSolar/scenes/menu/aero_menu.tscn" id="5_f3b6h"]
@@ -27,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ivofr")
+game_scene = ExtResource("2_e8rus")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

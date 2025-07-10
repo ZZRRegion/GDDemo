@@ -56,8 +56,11 @@ func on_pressed() -> void:
 	
 func load_next_slide() ->void:
 	current_slide += 1
-	load_slide(PSGamemanager.current_level, current_slide)
-
+	if current_slide < game_slides[PSGamemanager.current_level].size():
+		load_slide(PSGamemanager.current_level, current_slide)
+	else:
+		hide()
+		PSGamemanager.start_level.emit()
 func load_slide(level: int, slide: int) ->void:
 	texture_rect.texture = load(game_slides[level][slide].image)
 	rich_text_label.text = game_slides[level][slide].text

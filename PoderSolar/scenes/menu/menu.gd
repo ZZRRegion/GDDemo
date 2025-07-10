@@ -8,8 +8,4 @@ func _ready() -> void:
 	button.pressed.connect(on_pressed)
 
 func on_pressed() -> void:
-	print("pressed")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	get_tree().change_scene_to_packed(game_scene)

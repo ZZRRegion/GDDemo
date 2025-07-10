@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dltw6e3wj2a1v"]
+[gd_scene load_steps=7 format=3 uid="uid://dltw6e3wj2a1v"]
 
 [ext_resource type="PackedScene" uid="uid://dpnd6b5joxc26" path="res://PoderSolar/scenes/menu/panel.tscn" id="1_cpr5c"]
+[ext_resource type="Script" uid="uid://ctlduw5we8xqi" path="res://PoderSolar/scenes/game/game.gd" id="1_rev48"]
 [ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://PoderSolar/assets/sprites/gameplay/sky.svg" id="1_xk6uh"]
 [ext_resource type="Texture2D" uid="uid://c0iub3ipdr73b" path="res://PoderSolar/assets/sprites/gameplay/moon.svg" id="2_2s33e"]
 [ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://PoderSolar/assets/sprites/gameplay/background.svg" id="2_ho6vc"]
+[ext_resource type="PackedScene" uid="uid://bust0edjwkdc" path="res://PoderSolar/scenes/menu/slides.tscn" id="5_tde3h"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_rev48")
 
 [node name="Sky" type="Sprite2D" parent="."]
 modulate = Color(0.0470588, 0.14902, 0.301961, 1)
@@ -33,5 +36,8 @@ world = NodePath("../../../../World")
 world = NodePath("../../../../World")
 
 [node name="World" type="Node2D" parent="."]
+
+[node name="Slides" parent="." instance=ExtResource("5_tde3h")]
+visible = false
 
 [editable path="Panel"]
