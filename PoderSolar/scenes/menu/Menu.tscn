@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bdt51yg0tvlpq"]
 
-[ext_resource type="Script" uid="uid://o6koqouxpyi3" path="res://PoderSolar/scenes/menu.gd" id="1_ivofr"]
+[ext_resource type="Script" uid="uid://o6koqouxpyi3" path="res://PoderSolar/scenes/menu/menu.gd" id="1_ivofr"]
 [ext_resource type="Texture2D" uid="uid://cnsyrjbggj5tp" path="res://PoderSolar/assets/sprites/menus/main_menu.svg" id="2_6xtey"]
 [ext_resource type="Texture2D" uid="uid://bte75qgd6lnb2" path="res://PoderSolar/assets/sprites/menus/game_title.svg" id="3_hvb8a"]
-[ext_resource type="PackedScene" uid="uid://1tx4fdnvhc74" path="res://PoderSolar/scenes/tree_menu.tscn" id="4_ctqn0"]
-[ext_resource type="PackedScene" uid="uid://b2lm7cl0mpjtf" path="res://PoderSolar/scenes/aero_menu.tscn" id="5_f3b6h"]
+[ext_resource type="PackedScene" uid="uid://1tx4fdnvhc74" path="res://PoderSolar/scenes/menu/tree_menu.tscn" id="4_ctqn0"]
+[ext_resource type="PackedScene" uid="uid://b2lm7cl0mpjtf" path="res://PoderSolar/scenes/menu/aero_menu.tscn" id="5_f3b6h"]
 [ext_resource type="AudioStream" uid="uid://b354wghtd84fg" path="res://PoderSolar/assets/sounds/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg" id="6_xhufu"]
 [ext_resource type="AudioStream" uid="uid://qledq016vl8d" path="res://PoderSolar/assets/sounds/crickets.ogg" id="7_86lmd"]
 [ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://PoderSolar/assets/sprites/menus/play_button.svg" id="8_m4glm"]

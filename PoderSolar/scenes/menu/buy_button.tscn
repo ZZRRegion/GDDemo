@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3al6broylxpv"]
+
+[ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://PoderSolar/assets/sprites/ui/button_disabled.svg" id="1_l5ps3"]
+[ext_resource type="Texture2D" uid="uid://ddyv4xqyi581h" path="res://PoderSolar/assets/sprites/ui/button_active.svg" id="2_ycrad"]
+[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://PoderSolar/assets/sprites/ui/money.svg" id="3_johmm"]
+[ext_resource type="Texture2D" uid="uid://b31cg1aamphne" path="res://PoderSolar/assets/sprites/ui/comic_dialogue.svg" id="4_lxm2x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ce4k"]
+texture = ExtResource("1_l5ps3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mct52"]
+texture = ExtResource("2_ycrad")
+
+[node name="BuyButton" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6ce4k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mct52")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mct52")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_johmm")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="Message" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -148.0
+offset_right = 172.0
+offset_bottom = -3.0
+texture = ExtResource("4_lxm2x")
+
+[node name="Title" type="Label" parent="Message"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_right = 29.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Title"
+
+[node name="Desc" type="Label" parent="Message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Desc"
