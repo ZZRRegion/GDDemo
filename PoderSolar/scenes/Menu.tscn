@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdt51yg0tvlpq"]
+
+[ext_resource type="Script" uid="uid://o6koqouxpyi3" path="res://PoderSolar/scenes/menu.gd" id="1_ivofr"]
+[ext_resource type="Texture2D" uid="uid://cnsyrjbggj5tp" path="res://PoderSolar/assets/sprites/menus/main_menu.svg" id="2_6xtey"]
+[ext_resource type="Texture2D" uid="uid://bte75qgd6lnb2" path="res://PoderSolar/assets/sprites/menus/game_title.svg" id="3_hvb8a"]
+[ext_resource type="PackedScene" uid="uid://1tx4fdnvhc74" path="res://PoderSolar/scenes/tree_menu.tscn" id="4_ctqn0"]
+[ext_resource type="PackedScene" uid="uid://b2lm7cl0mpjtf" path="res://PoderSolar/scenes/aero_menu.tscn" id="5_f3b6h"]
+[ext_resource type="AudioStream" uid="uid://b354wghtd84fg" path="res://PoderSolar/assets/sounds/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg" id="6_xhufu"]
+[ext_resource type="AudioStream" uid="uid://qledq016vl8d" path="res://PoderSolar/assets/sounds/crickets.ogg" id="7_86lmd"]
+[ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://PoderSolar/assets/sprites/menus/play_button.svg" id="8_m4glm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4glm"]
+texture = ExtResource("8_m4glm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5xqo"]
+texture = ExtResource("8_m4glm")
+modulate_color = Color(0.176471, 0.203922, 0.439216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whh3r"]
+texture = ExtResource("8_m4glm")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ivofr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6xtey")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -172.0
+offset_right = 229.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hvb8a")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TreeMenu" parent="Node" instance=ExtResource("4_ctqn0")]
+position = Vector2(683, 344)
+
+[node name="TreeMenu2" parent="Node" instance=ExtResource("4_ctqn0")]
+position = Vector2(631, 396)
+
+[node name="TreeMenu3" parent="Node" instance=ExtResource("4_ctqn0")]
+position = Vector2(760, 333)
+
+[node name="TreeMenu4" parent="Node" instance=ExtResource("4_ctqn0")]
+position = Vector2(679, 418)
+
+[node name="TreeMenu5" parent="Node" instance=ExtResource("4_ctqn0")]
+position = Vector2(736, 415)
+
+[node name="AeroMenu" parent="Node" instance=ExtResource("5_f3b6h")]
+position = Vector2(192, 425)
+
+[node name="AeroMenu2" parent="Node" instance=ExtResource("5_f3b6h")]
+position = Vector2(140, 492)
+
+[node name="AeroMenu3" parent="Node" instance=ExtResource("5_f3b6h")]
+position = Vector2(86, 528)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xhufu")
+volume_db = -10.0
+autoplay = true
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_86lmd")
+volume_db = -3.0
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -243.0
+offset_right = 106.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_m4glm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g5xqo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_whh3r")

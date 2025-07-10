@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqicdn7snpamw"
+path="res://.godot/imported/Frédéric Lardon - Cellphone - 05 funk à 10 balles.ogg-54588663a82efb987b6b6c8135778c66.oggvorbisstr"
+
+[deps]
+
+source_file="res://PoderSolar/assets/sounds/Frédéric Lardon - Cellphone - 05 funk à 10 balles.ogg"
+dest_files=["res://.godot/imported/Frédéric Lardon - Cellphone - 05 funk à 10 balles.ogg-54588663a82efb987b6b6c8135778c66.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b354wghtd84fg"
+path="res://.godot/imported/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg-b166e11a175b64bbe3a8d34f242017bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://PoderSolar/assets/sounds/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg"
+dest_files=["res://.godot/imported/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg-b166e11a175b64bbe3a8d34f242017bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
