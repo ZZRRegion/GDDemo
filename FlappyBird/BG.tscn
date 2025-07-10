@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuhgxn0agiy1n"]
+
+[ext_resource type="Script" uid="uid://bsh2jfyqx7ul" path="res://FlappyBird/bg.gd" id="1_ppgon"]
+[ext_resource type="Texture2D" uid="uid://cqa5inm58uf22" path="res://FlappyBird/assets/bg.png" id="1_t48jo"]
+[ext_resource type="Texture2D" uid="uid://b3wob7btvm53l" path="res://FlappyBird/assets/ground.png" id="2_ppgon"]
+
+[node name="Bg" type="ParallaxBackground"]
+script = ExtResource("1_ppgon")
+
+[node name="Back" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Back"]
+texture = ExtResource("1_t48jo")
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(900, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(0, 700)
+texture = ExtResource("2_ppgon")
+centered = false

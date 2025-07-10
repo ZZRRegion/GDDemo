@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ffuhdi2shxa2"]
+[gd_scene load_steps=4 format=3 uid="uid://ffuhdi2shxa2"]
 
 [ext_resource type="PackedScene" uid="uid://c3bhhmgchh77n" path="res://FlappyBird/Bird.tscn" id="1_8v60n"]
 [ext_resource type="PackedScene" uid="uid://dgcl1g7oly7r2" path="res://FlappyBird/Pipes.tscn" id="2_3gm4q"]
+[ext_resource type="PackedScene" uid="uid://cuhgxn0agiy1n" path="res://FlappyBird/BG.tscn" id="3_7xlqt"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,5 @@ position = Vector2(304, 205)
 
 [node name="Pipes" parent="." instance=ExtResource("2_3gm4q")]
 position = Vector2(395, 210)
+
+[node name="Bg" parent="." instance=ExtResource("3_7xlqt")]
