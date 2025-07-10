@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpnd6b5joxc26"]
+
+[ext_resource type="Texture2D" uid="uid://bujvy6jo8pckb" path="res://PoderSolar/assets/sprites/ui/slider/energy_out.svg" id="1_0kt2p"]
+[ext_resource type="PackedScene" uid="uid://cve7ppagh6luu" path="res://PoderSolar/scenes/menu/buy_tree.tscn" id="1_4ch1o"]
+[ext_resource type="Texture2D" uid="uid://c3bww28tuaens" path="res://PoderSolar/assets/sprites/ui/slider/energy_overcharge.svg" id="2_3lwts"]
+[ext_resource type="PackedScene" uid="uid://qt2wxorprktp" path="res://PoderSolar/scenes/menu/buy_coal.tscn" id="2_78i5h"]
+[ext_resource type="PackedScene" uid="uid://c7r84hpr5l2t3" path="res://PoderSolar/scenes/menu/buy_areo.tscn" id="3_0kt2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ommd2"]
+bg_color = Color(0.129412, 0.231373, 0.298039, 1)
+
+[node name="Panel" type="Panel"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -145.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ommd2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_0kt2p")
+stretch_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(228, 42)
+layout_mode = 2
+max_value = 50.0
+value = 30.0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_3lwts")
+stretch_mode = 2
+
+[node name="BuyTree" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_4ch1o")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyCoal" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_78i5h")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyAreo" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0kt2p")]
+layout_mode = 2
+size_flags_horizontal = 3

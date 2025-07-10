@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://qt2wxorprktp"]
+
+[ext_resource type="PackedScene" uid="uid://d3al6broylxpv" path="res://PoderSolar/scenes/menu/buy_button.tscn" id="1_snnwq"]
+[ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://PoderSolar/assets/sprites/items/power_plant.svg" id="2_fbtrt"]
+
+[node name="BuyCoal" instance=ExtResource("1_snnwq")]
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+texture = ExtResource("2_fbtrt")
+
+[node name="Message" parent="." index="1"]
+visible = false
+
+[node name="Title" parent="Message" index="0"]
+text = "Thermal power plant"
+
+[node name="Desc" parent="Message" index="1"]
+text = "Produces electricity
+but also pollution"

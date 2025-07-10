@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7r84hpr5l2t3"]
+
+[ext_resource type="PackedScene" uid="uid://d3al6broylxpv" path="res://PoderSolar/scenes/menu/buy_button.tscn" id="1_pbw1u"]
+[ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://PoderSolar/assets/sprites/items/aerogenerator_blades.svg" id="2_57q5b"]
+
+[node name="BuyAreo" instance=ExtResource("1_pbw1u")]
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+texture = ExtResource("2_57q5b")
+
+[node name="Message" parent="." index="1"]
+visible = false
+
+[node name="Title" parent="Message" index="0"]
+text = "Wind turbine"
+
+[node name="Desc" parent="Message" index="1"]
+text = "Generate clean energy"

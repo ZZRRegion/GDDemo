@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cve7ppagh6luu"]
+
+[ext_resource type="PackedScene" uid="uid://d3al6broylxpv" path="res://PoderSolar/scenes/menu/buy_button.tscn" id="1_8uxg1"]
+[ext_resource type="Texture2D" uid="uid://bag8t16pfux4f" path="res://PoderSolar/assets/sprites/items/tree.svg" id="2_ycqev"]
+
+[node name="BuyTree" instance=ExtResource("1_8uxg1")]
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer" index="0"]
+texture = ExtResource("2_ycqev")
+
+[node name="Message" parent="." index="1"]
+visible = false
+
+[node name="Title" parent="Message" index="0"]
+text = "Tree"
+
+[node name="Desc" parent="Message" index="1"]
+text = "Reduce pollution"
