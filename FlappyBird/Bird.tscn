@@ -35,4 +35,4 @@ shape = SubResource("CircleShape2D_1ep7x")
 sprite_frames = SubResource("SpriteFrames_17osg")
 animation = &"bird"
 autoplay = "bird"
-frame_progress = 0.336203
+frame_progress = 0.181473
