@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3bhhmgchh77n"]
+[gd_scene load_steps=10 format=3 uid="uid://c3bhhmgchh77n"]
 
 [ext_resource type="Texture2D" uid="uid://bihbkg7ud8hcl" path="res://FlappyBird/assets/bird1.png" id="1_1ep7x"]
 [ext_resource type="Script" uid="uid://qyj2po0lphnh" path="res://FlappyBird/bird.gd" id="1_cff86"]
 [ext_resource type="Texture2D" uid="uid://caavwymrm56gm" path="res://FlappyBird/assets/bird2.png" id="3_f6vav"]
 [ext_resource type="Texture2D" uid="uid://bi8e50d2hcuo0" path="res://FlappyBird/assets/bird3.png" id="4_r5uwp"]
+[ext_resource type="AudioStream" uid="uid://c3use44oq55xn" path="res://FlappyBird/assets/wing.wav" id="5_4l0xo"]
+[ext_resource type="AudioStream" uid="uid://dfpwf5swt6o1c" path="res://FlappyBird/assets/hit.wav" id="6_wbncv"]
+[ext_resource type="AudioStream" uid="uid://dat7b3bwl7twv" path="res://FlappyBird/assets/point.wav" id="7_8vw2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ep7x"]
 radius = 18.0278
@@ -25,7 +28,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bird" type="CharacterBody2D"]
+[node name="Bird" type="CharacterBody2D" groups=["bird"]]
 script = ExtResource("1_cff86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,4 +38,13 @@ shape = SubResource("CircleShape2D_1ep7x")
 sprite_frames = SubResource("SpriteFrames_17osg")
 animation = &"bird"
 autoplay = "bird"
-frame_progress = 0.521694
+frame_progress = 0.935626
+
+[node name="WingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4l0xo")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wbncv")
+
+[node name="PointSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8vw2x")

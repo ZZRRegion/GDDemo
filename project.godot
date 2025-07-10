@@ -22,6 +22,7 @@ general/text_to_speech=true
 [autoload]
 
 ZwGlobal="*res://Global/ZWGlobal.gd"
+GameManager="*res://FlappyBird/game_manager.gd"
 
 [display]
 
