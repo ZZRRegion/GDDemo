@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dltw6e3wj2a1v"]
+
+[ext_resource type="PackedScene" uid="uid://bub8elw6n7wp3" path="res://PoderSolar/scenes/Objects/item.tscn" id="1_cpr5c"]
+
+[node name="Game" type="Node"]
+
+[node name="Item" parent="." instance=ExtResource("1_cpr5c")]
+position = Vector2(330, 286)

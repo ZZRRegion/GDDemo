@@ -1,0 +1,232 @@
+[gd_scene load_steps=11 format=3 uid="uid://bub8elw6n7wp3"]
+
+[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://PoderSolar/assets/sprites/items/power_plant_shadow.png" id="1_3xpqh"]
+[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://PoderSolar/assets/sprites/ui/money.svg" id="3_x0pqs"]
+[ext_resource type="AudioStream" uid="uid://4uv5uigl4gsl" path="res://PoderSolar/assets/sounds/fall_1.ogg" id="4_48r18"]
+[ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_down.svg" id="4_qyvks"]
+[ext_resource type="AudioStream" uid="uid://jwldgek1j4qu" path="res://PoderSolar/assets/sounds/coins.ogg" id="5_qyvks"]
+
+[sub_resource type="Animation" id="Animation_48r18"]
+resource_name = "on_placed"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qyvks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icons:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icons:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_66sjp"]
+resource_name = "on_sell"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eb43s"]
+resource_name = "on_gathere"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icons:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.1, 1.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyvks"]
+_data = {
+&"RESET": SubResource("Animation_qyvks"),
+&"on_gathered": SubResource("Animation_eb43s"),
+&"on_placed": SubResource("Animation_48r18"),
+&"on_sell": SubResource("Animation_66sjp")
+}
+
+[node name="Item" type="Node2D"]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("1_3xpqh")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+
+[node name="HitBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -30.0
+offset_right = 43.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SellButton" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -30.0
+offset_right = 43.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SellLabel" type="Label" parent="SellButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Sell"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="SellButton"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "60"
+horizontal_alignment = 1
+
+[node name="Money" type="TextureRect" parent="SellButton"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -20.0
+offset_right = 51.0
+offset_bottom = 11.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0pqs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Icons"]
+position = Vector2(0, -34)
+texture = ExtResource("4_qyvks")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_48r18")
+
+[node name="Audio2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qyvks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qyvks")
+}
