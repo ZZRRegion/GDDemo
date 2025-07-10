@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://blb5trx5w0i7n"]
+
+[ext_resource type="PackedScene" uid="uid://bub8elw6n7wp3" path="res://PoderSolar/scenes/Objects/item.tscn" id="1_eeiej"]
+[ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://PoderSolar/assets/sprites/items/aerogenerator.svg" id="2_ao1sk"]
+[ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://PoderSolar/assets/sprites/items/aerogenerator_blades.svg" id="3_o1o7w"]
+[ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://PoderSolar/assets/sprites/items/aerogenerator_top.svg" id="4_3bh8w"]
+[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/energy_up.svg" id="5_o1o7w"]
+
+[sub_resource type="Animation" id="Animation_ao1sk"]
+resource_name = "idle"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_o1o7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bh8w"]
+_data = {
+&"RESET": SubResource("Animation_o1o7w"),
+&"idle": SubResource("Animation_ao1sk")
+}
+
+[node name="AreoGenerator" instance=ExtResource("1_eeiej")]
+
+[node name="Image" parent="." index="1"]
+texture = ExtResource("2_ao1sk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Image" index="0"]
+position = Vector2(-2, -21)
+texture = ExtResource("3_o1o7w")
+offset = Vector2(-1, -6)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Image" index="1"]
+position = Vector2(-1, -21)
+texture = ExtResource("4_3bh8w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Image" index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_3bh8w")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Icons" index="0"]
+position = Vector2(0, -50)
+texture = ExtResource("5_o1o7w")

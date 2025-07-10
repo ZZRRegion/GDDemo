@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpnd6b5joxc26"]
+[gd_scene load_steps=18 format=3 uid="uid://dpnd6b5joxc26"]
 
 [ext_resource type="Texture2D" uid="uid://bujvy6jo8pckb" path="res://PoderSolar/assets/sprites/ui/slider/energy_out.svg" id="1_0kt2p"]
 [ext_resource type="PackedScene" uid="uid://cve7ppagh6luu" path="res://PoderSolar/scenes/menu/buy_tree.tscn" id="1_4ch1o"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bkbp3aourgms7" path="res://PoderSolar/assets/sprites/ui/slider/slider_grab_pollution.svg" id="6_32a6a"]
 [ext_resource type="Texture2D" uid="uid://cuxibndcc43em" path="res://PoderSolar/assets/sprites/ui/slider/pollution_bad.svg" id="6_asskp"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://PoderSolar/assets/sprites/ui/money.svg" id="8_32a6a"]
+[ext_resource type="PackedScene" uid="uid://nypcjia4lc4k" path="res://PoderSolar/scenes/Objects/tree.tscn" id="10_xx51l"]
+[ext_resource type="PackedScene" uid="uid://bxlhlddnrnsum" path="res://PoderSolar/scenes/Objects/coal_power.tscn" id="12_6d851"]
+[ext_resource type="PackedScene" uid="uid://blb5trx5w0i7n" path="res://PoderSolar/scenes/Objects/areo_generator.tscn" id="13_py7ms"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ommd2"]
 bg_color = Color(0.129412, 0.231373, 0.298039, 1)
@@ -128,11 +131,14 @@ text = "0"
 [node name="BuyTree" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_4ch1o")]
 layout_mode = 2
 size_flags_horizontal = 3
+item_scene = ExtResource("10_xx51l")
 
 [node name="BuyCoal" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_78i5h")]
 layout_mode = 2
 size_flags_horizontal = 3
+item_scene = ExtResource("12_6d851")
 
 [node name="BuyAreo" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0kt2p")]
 layout_mode = 2
 size_flags_horizontal = 3
+item_scene = ExtResource("13_py7ms")

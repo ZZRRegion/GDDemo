@@ -1,0 +1,61 @@
+extends Node2D
+
+@export var cost: int
+@export var sell_price: int
+@export var money: int
+@export var energy: int
+@export var pollution: int
+@onready var audio: AudioStreamPlayer = $Audio
+@onready var audio_sell: AudioStreamPlayer = $Audio2
+@onready var money_label: Label = $SellButton/MoneyLabel
+@onready var sell_button: Button = $SellButton
+@onready var timer: Timer = $Timer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_box: Control = $HitBox
+
+var is_hovering: bool = false
+var is_instantiated: bool = false
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	sell_button.hide()
+	timer.timeout.connect(on_timeout)
+	hit_box.mouse_entered.connect(on_mouse_entered)
+	sell_button.mouse_exited.connect(on_mouse_exited)
+	sell_button.pressed.connect(on_pressed)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if not is_instantiated:
+		global_position = get_global_mouse_position()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("click") and not is_instantiated:
+		is_instantiated = true
+		audio.play()
+		timer.start()
+		animation_player.play("on_placed")
+		
+func on_timeout() -> void:
+	animation_player.play("on_gathered")
+
+func on_mouse_entered() -> void:
+	is_hovering = true
+	if is_instantiated:
+		sell_button.visible = true
+	
+func on_mouse_exited() -> void:
+	if is_hovering:
+		is_hovering = false
+		sell_button.visible = false
+	
+func on_pressed() ->void:
+	audio_sell.play()
+	timer.stop()
+	sell_button.hide()
+	animation_player.play("on_sell")
+	await  animation_player.animation_finished
+	queue_free()
+	
+	
+	
+	
+	

@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxlhlddnrnsum"]
+
+[ext_resource type="PackedScene" uid="uid://bub8elw6n7wp3" path="res://PoderSolar/scenes/Objects/item.tscn" id="1_0t1pd"]
+[ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://PoderSolar/assets/sprites/items/power_plant.svg" id="2_4r4ju"]
+[ext_resource type="Texture2D" uid="uid://clacihq5vpd5q" path="res://PoderSolar/assets/sprites/items/power_plant_fire.svg" id="3_tp1up"]
+[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/energy_up.svg" id="4_6uefn"]
+[ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_up.svg" id="5_ywggn"]
+
+[sub_resource type="Animation" id="Animation_tp1up"]
+resource_name = "fire"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.364706), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6uefn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywggn"]
+_data = {
+&"RESET": SubResource("Animation_6uefn"),
+&"fire": SubResource("Animation_tp1up")
+}
+
+[node name="CoalPower" instance=ExtResource("1_0t1pd")]
+
+[node name="Image" parent="." index="1"]
+position = Vector2(0, -18)
+texture = ExtResource("2_4r4ju")
+
+[node name="Sprite2D" type="Sprite2D" parent="Image" index="0"]
+position = Vector2(-7, 12)
+texture = ExtResource("3_tp1up")
+offset = Vector2(0, -7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Image" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ywggn")
+}
+autoplay = "fire"
+
+[node name="Sprite2D" type="Sprite2D" parent="Icons" index="0"]
+position = Vector2(-15, -27)
+texture = ExtResource("4_6uefn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Icons" index="1"]
+position = Vector2(16, -27)
+texture = ExtResource("5_ywggn")

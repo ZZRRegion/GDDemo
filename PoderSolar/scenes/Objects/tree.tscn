@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://nypcjia4lc4k"]
+
+[ext_resource type="PackedScene" uid="uid://bub8elw6n7wp3" path="res://PoderSolar/scenes/Objects/item.tscn" id="1_a5n3p"]
+[ext_resource type="Texture2D" uid="uid://bag8t16pfux4f" path="res://PoderSolar/assets/sprites/items/tree.svg" id="2_obcve"]
+[ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_down.svg" id="3_obcve"]
+
+[node name="Tree" instance=ExtResource("1_a5n3p")]
+
+[node name="Image" parent="." index="1"]
+texture = ExtResource("2_obcve")
+
+[node name="Sprite2D" type="Sprite2D" parent="Icons" index="0"]
+position = Vector2(0, -34)
+texture = ExtResource("3_obcve")

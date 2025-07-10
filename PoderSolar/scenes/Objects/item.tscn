@@ -1,26 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bub8elw6n7wp3"]
 
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://PoderSolar/assets/sprites/items/power_plant_shadow.png" id="1_3xpqh"]
+[ext_resource type="Script" uid="uid://u0w7kuw84kob" path="res://PoderSolar/scenes/Objects/item.gd" id="1_48r18"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://PoderSolar/assets/sprites/ui/money.svg" id="3_x0pqs"]
 [ext_resource type="AudioStream" uid="uid://4uv5uigl4gsl" path="res://PoderSolar/assets/sounds/fall_1.ogg" id="4_48r18"]
-[ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_down.svg" id="4_qyvks"]
 [ext_resource type="AudioStream" uid="uid://jwldgek1j4qu" path="res://PoderSolar/assets/sounds/coins.ogg" id="5_qyvks"]
-
-[sub_resource type="Animation" id="Animation_48r18"]
-resource_name = "on_placed"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Image:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.8), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_qyvks"]
 length = 0.001
@@ -70,23 +54,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_66sjp"]
-resource_name = "on_sell"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_eb43s"]
@@ -128,6 +96,38 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_48r18"]
+resource_name = "on_placed"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_66sjp"]
+resource_name = "on_sell"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qyvks"]
 _data = {
 &"RESET": SubResource("Animation_qyvks"),
@@ -137,6 +137,7 @@ _data = {
 }
 
 [node name="Item" type="Node2D"]
+script = ExtResource("1_48r18")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("1_3xpqh")
@@ -215,10 +216,7 @@ texture = ExtResource("3_x0pqs")
 wait_time = 5.0
 
 [node name="Icons" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Icons"]
-position = Vector2(0, -34)
-texture = ExtResource("4_qyvks")
+modulate = Color(1, 1, 1, 0)
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_48r18")

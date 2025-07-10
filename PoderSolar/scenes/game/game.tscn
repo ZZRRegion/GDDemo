@@ -1,8 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://dltw6e3wj2a1v"]
 
-[ext_resource type="PackedScene" uid="uid://bub8elw6n7wp3" path="res://PoderSolar/scenes/Objects/item.tscn" id="1_cpr5c"]
+[ext_resource type="PackedScene" uid="uid://dpnd6b5joxc26" path="res://PoderSolar/scenes/menu/panel.tscn" id="1_cpr5c"]
 
 [node name="Game" type="Node"]
 
-[node name="Item" parent="." instance=ExtResource("1_cpr5c")]
-position = Vector2(330, 286)
+[node name="Panel" parent="." instance=ExtResource("1_cpr5c")]
+
+[node name="BuyTree" parent="Panel/MarginContainer/HBoxContainer" index="1" node_paths=PackedStringArray("world")]
+world = NodePath("../../../../World")
+
+[node name="BuyCoal" parent="Panel/MarginContainer/HBoxContainer" index="2" node_paths=PackedStringArray("world")]
+world = NodePath("../../../../World")
+
+[node name="BuyAreo" parent="Panel/MarginContainer/HBoxContainer" index="3" node_paths=PackedStringArray("world")]
+world = NodePath("../../../../World")
+
+[node name="World" type="Node2D" parent="."]
+
+[editable path="Panel"]
