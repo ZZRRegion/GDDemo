@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var wing_sound: AudioStreamPlayer = $WingSound
 @onready var hit_sound: AudioStreamPlayer = $HitSound
 @onready var point_sound: AudioStreamPlayer = $PointSound
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 var rot_degree :float = 0
 
@@ -16,6 +17,7 @@ func on_game_over()->void:
 	is_dead = true
 	animated_sprite_2d.stop()
 	hit_sound.play()
+	cpu_particles_2d.emitting = false
 	
 func on_get_score() ->void:
 	point_sound.play()

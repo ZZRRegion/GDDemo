@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3bhhmgchh77n"]
+[gd_scene load_steps=12 format=3 uid="uid://c3bhhmgchh77n"]
 
 [ext_resource type="Texture2D" uid="uid://bihbkg7ud8hcl" path="res://FlappyBird/assets/bird1.png" id="1_1ep7x"]
 [ext_resource type="Script" uid="uid://qyj2po0lphnh" path="res://FlappyBird/bird.gd" id="1_cff86"]
@@ -28,6 +28,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_4l0xo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.494382), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4l0xo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.372549)
+
 [node name="Bird" type="CharacterBody2D" groups=["bird"]]
 script = ExtResource("1_cff86")
 
@@ -38,7 +45,7 @@ shape = SubResource("CircleShape2D_1ep7x")
 sprite_frames = SubResource("SpriteFrames_17osg")
 animation = &"bird"
 autoplay = "bird"
-frame_progress = 0.935626
+frame_progress = 0.610157
 
 [node name="WingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4l0xo")
@@ -48,3 +55,16 @@ stream = ExtResource("6_wbncv")
 
 [node name="PointSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_8vw2x")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 6
+texture = ExtResource("3_f6vav")
+lifetime = 0.2
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+scale_amount_curve = SubResource("Curve_4l0xo")
+color_ramp = SubResource("Gradient_4l0xo")
