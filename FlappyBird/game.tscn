@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ffuhdi2shxa2"]
+[gd_scene load_steps=6 format=3 uid="uid://ffuhdi2shxa2"]
 
 [ext_resource type="PackedScene" uid="uid://c3bhhmgchh77n" path="res://FlappyBird/Bird.tscn" id="1_8v60n"]
 [ext_resource type="Script" uid="uid://vh4lg2p7urbd" path="res://FlappyBird/game.gd" id="1_jw6t2"]
 [ext_resource type="PackedScene" uid="uid://cuhgxn0agiy1n" path="res://FlappyBird/BG.tscn" id="3_7xlqt"]
+[ext_resource type="PackedScene" uid="uid://bgks7w2lybi6g" path="res://FlappyBird/HUD.tscn" id="3_jw6t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xlqt"]
 size = Vector2(626, 49)
@@ -13,6 +14,8 @@ script = ExtResource("1_jw6t2")
 [node name="Bird" parent="." instance=ExtResource("1_8v60n")]
 top_level = true
 position = Vector2(100, 350)
+
+[node name="Hud" parent="Bird" instance=ExtResource("3_jw6t2")]
 
 [node name="Bg" parent="." instance=ExtResource("3_7xlqt")]
 

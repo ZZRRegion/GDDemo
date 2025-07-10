@@ -2,6 +2,7 @@ extends Node2D
 const PIPES : PackedScene = preload("res://FlappyBird/Pipes.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_window().title = "小鸟出动 @zzr"
 	GameManager.GameOver.connect(on_game_over)
 	new_pipes()
 	pass # Replace with function body.

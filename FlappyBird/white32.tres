@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cmgu3llox3y57"]
+
+[ext_resource type="FontFile" uid="uid://7yb3dw5of6f6" path="res://FlappyBird/assets/LuckiestGuy-Regular.ttf" id="1_lydsy"]
+
+[resource]
+font = ExtResource("1_lydsy")
+font_size = 32
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.482353)
+shadow_offset = Vector2(3, 3)

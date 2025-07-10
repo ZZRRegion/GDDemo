@@ -1,6 +1,7 @@
 extends Node2D
 @onready var coin: Area2D = $Coin
-
+@onready var animation_player: AnimationPlayer = $Coin/AnimationPlayer
+var passed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +20,11 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 
 
 func _on_coin_body_entered(body: Node2D) -> void:
-	if body.is_in_group("bird"):
+	if body.is_in_group("bird") and not passed and not body.is_dead:
+		passed = true
 		GameManager.GetScore.emit()
+		animation_player.play("coin")
+		await  animation_player.animation_finished
 		coin.queue_free()
 
 
