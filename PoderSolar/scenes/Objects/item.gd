@@ -29,8 +29,10 @@ func _process(delta: float) -> void:
 		global_position = get_global_mouse_position()
 		if not can_placed():
 			self.modulate = Color.RED
+			$Message.show()
 		else:
 			modulate = Color.WHITE
+			$Message.hide()
 			
 	
 func can_placed() -> bool:
@@ -41,6 +43,10 @@ func _input(event: InputEvent) -> void:
 		audio.play()
 		timer.start()
 		animation_player.play("on_placed")
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if not event.pressed and not is_instantiated and not can_placed():
+				queue_free()
 		
 func on_timeout() -> void:
 	animation_player.play("on_gathered")
