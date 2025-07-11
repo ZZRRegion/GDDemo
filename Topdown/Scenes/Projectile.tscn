@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b34coq4nepnyj"]
+[gd_scene load_steps=9 format=3 uid="uid://b34coq4nepnyj"]
 
 [ext_resource type="Texture2D" uid="uid://ca8kpphi44wvq" path="res://Topdown/Assets/Items/bullet.png" id="1_g7wdp"]
 [ext_resource type="Script" uid="uid://y3ckxq7fu2dv" path="res://Topdown/Scenes/projectile.gd" id="1_gi8p3"]
@@ -39,6 +39,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gi8p3"]
+radius = 6.08276
+
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_gi8p3")
 
@@ -46,4 +49,15 @@ script = ExtResource("1_gi8p3")
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_b72m6")
 autoplay = "default"
-frame_progress = 0.573167
+frame_progress = 0.415039
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 8
+visibility_layer = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 8
+visibility_layer = 6
+shape = SubResource("CircleShape2D_gi8p3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

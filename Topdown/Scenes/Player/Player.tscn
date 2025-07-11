@@ -172,9 +172,10 @@ shape = SubResource("RectangleShape2D_dcxfl")
 sprite_frames = SubResource("SpriteFrames_rqlo3")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.87838
+frame_progress = 0.600863
 
 [node name="ShootAttack" type="Node2D" parent="."]
+position = Vector2(-1, 6)
 script = ExtResource("3_if31p")
 projectile = ExtResource("4_ttmni")
 

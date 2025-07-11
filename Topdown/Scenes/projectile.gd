@@ -16,3 +16,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position += flying_direction * flying_speed * delta
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("消失" + str(body))
+	queue_free()

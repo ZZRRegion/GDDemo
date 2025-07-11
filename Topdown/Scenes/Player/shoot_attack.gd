@@ -27,7 +27,8 @@ func handle_shoot() -> void:
 		return
 	var projectile:Projectile = projectile.instantiate() as Projectile
 	get_tree().current_scene.add_child(projectile)
-	projectile.set_up(Vector2.RIGHT)
+	var shoot_direction = get_global_mouse_position() - global_position
+	projectile.set_up(shoot_direction)
 	projectile.global_position = global_position
 	
 	shoot_t_imer.start()
