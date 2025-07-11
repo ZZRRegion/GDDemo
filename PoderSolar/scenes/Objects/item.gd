@@ -33,6 +33,9 @@ func _process(delta: float) -> void:
 		else:
 			modulate = Color.WHITE
 			$Message.hide()
+	elif is_hovering:
+		if not hit_box.get_global_rect().has_point(get_global_mouse_position()):
+			sell_button.mouse_exited.emit()
 			
 	
 func can_placed() -> bool:

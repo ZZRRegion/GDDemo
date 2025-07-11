@@ -52,6 +52,7 @@ visible = false
 stream = ExtResource("8_vr43f")
 volume_db = 3.0
 autoplay = true
+parameters/looping = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 173.0

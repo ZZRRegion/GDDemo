@@ -1,10 +1,10 @@
 extends Node
-const MONEY_DEFAULT: int = 800
+const MONEY_DEFAULT: int = 1800
 const ENERGY_DEFAULT: int = 36
 const POLLUTION_DEFAULT: int = 0
 const MAX_ENERGY: int = 50
 const MAX_POLLUTION: int = 50
-const CURRENT_LEVEL_DEFAULT: int = 1
+const CURRENT_LEVEL_DEFAULT: int = 0
 signal start_level
 signal money_change
 signal pollution_change
@@ -44,6 +44,7 @@ func add_money(quantity: int) -> void:
 	
 func add_pollution(quantity: int) -> void:
 	pollution += quantity
+	print(Time.get_datetime_string_from_system() + "[]" + str(quantity))
 	if pollution > MAX_POLLUTION:
 		load_end_screen(End_States.LOOSE_POLLUTION)
 	elif pollution < 0:
@@ -54,7 +55,7 @@ func add_pollution(quantity: int) -> void:
 func add_energy(quantity: int) -> void:
 	energy_mutex.lock()
 	energy += quantity
-	print(quantity)
+	#print(Time.get_datetime_string_from_system() + str(quantity))
 	energy_mutex.unlock()
 	energy_change.emit()
 	if energy > MAX_ENERGY:
