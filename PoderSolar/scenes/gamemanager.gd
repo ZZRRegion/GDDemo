@@ -1,6 +1,6 @@
 extends Node
-const MONEY_DEFAULT: int = 300
-const ENERGY_DEFAULT: int = 25
+const MONEY_DEFAULT: int = 800
+const ENERGY_DEFAULT: int = 36
 const POLLUTION_DEFAULT: int = 0
 const MAX_ENERGY: int = 50
 const MAX_POLLUTION: int = 50
@@ -22,6 +22,7 @@ enum End_States {
 var end_state: End_States
 var current_level: int = CURRENT_LEVEL_DEFAULT
 var money: int = MONEY_DEFAULT
+var energy_mutex: Mutex = Mutex.new()
 var energy: int = ENERGY_DEFAULT
 var pollution: int = POLLUTION_DEFAULT
 
@@ -51,7 +52,10 @@ func add_pollution(quantity: int) -> void:
 	pollution_change.emit()
 	
 func add_energy(quantity: int) -> void:
+	energy_mutex.lock()
 	energy += quantity
+	print(quantity)
+	energy_mutex.unlock()
 	energy_change.emit()
 	if energy > MAX_ENERGY:
 		load_end_screen(End_States.LOOSE_ENERGY_OVERCHARGE)

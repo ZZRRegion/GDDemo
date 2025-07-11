@@ -1,4 +1,7 @@
 extends Node2D
+const FIRST_GAME_TIME: float = 1
+const SECOND_GAME_TIME: float = 0.5
+const THREE_GAME_TIME: float = 0.4
 @onready var icons: Node2D = $Icons
 @onready var money_up: Sprite2D = $Icons/MoneyUp
 @onready var pollution_up: Sprite2D = $Icons/PollutionUp
@@ -41,17 +44,17 @@ func setup_city() -> void:
 	match PSGamemanager.current_level:
 		0:
 			is_pollution = false
-			timer.set_wait_time(1.0)
+			timer.set_wait_time(FIRST_GAME_TIME)
 			icons.show()
 			concert_light.hide()
 			pollution.hide()
 		1:
 			is_pollution = false
-			timer.set_wait_time(0.5)
+			timer.set_wait_time(SECOND_GAME_TIME)
 			concert_light.show()
 			pollution.hide()
 		2:
 			is_pollution = true
-			timer.set_wait_time(0.4)
+			timer.set_wait_time(THREE_GAME_TIME)
 			concert_light.hide()
 			pollution.show()

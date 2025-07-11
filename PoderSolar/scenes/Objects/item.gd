@@ -75,7 +75,7 @@ func on_sell(money: int) -> void:
 	PSGamemanager.add_money(money)
 	
 func on_resource_gathered(money, energy, pollution):
-	PSGamemanager.add_energy(money)
+	PSGamemanager.add_money(money)
 	PSGamemanager.add_energy(energy)
 	PSGamemanager.add_pollution(pollution)
 

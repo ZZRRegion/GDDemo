@@ -4,7 +4,7 @@ extends Node
 @onready var city: Node2D = $City
 
 # 单位s
-@export var GAME_TIME: int = 10
+@export var GAME_TIME: int = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
