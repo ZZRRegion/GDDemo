@@ -4,7 +4,7 @@ extends Button
 @export var world: Node2D
 @onready var label: Label = $MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var message: TextureRect = $Message
-
+@export var prompt_nums: int = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	message.hide()
@@ -14,7 +14,10 @@ func _ready() -> void:
 	mouse_exited.connect(on_mouse_exited)
 	PSGamemanager.money_change.connect(on_money_change)
 func on_mouse_entered() -> void:
-	message.show()
+	$Message/nums.text = str(prompt_nums)
+	if prompt_nums >= 0:
+		prompt_nums -= 1
+		message.show()
 func on_mouse_exited() -> void:
 	message.hide()
 func on_button_down() -> void:
