@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="uid://dltw6e3wj2a1v"
+run/main_scene="uid://7gbdycmsv0v5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,9 +27,9 @@ PSGamemanager="*res://PoderSolar/scenes/gamemanager.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [dotnet]
 
