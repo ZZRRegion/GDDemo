@@ -6,6 +6,33 @@
 [ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/energy_up.svg" id="4_6uefn"]
 [ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_up.svg" id="5_ywggn"]
 
+[sub_resource type="Animation" id="Animation_6uefn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_tp1up"]
 resource_name = "fire"
 loop_mode = 1
@@ -34,33 +61,6 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_6uefn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywggn"]
 _data = {
 &"RESET": SubResource("Animation_6uefn"),
@@ -68,6 +68,9 @@ _data = {
 }
 
 [node name="CoalPower" instance=ExtResource("1_0t1pd")]
+cost = 100
+sell_price = 20
+energy = 1
 
 [node name="Image" parent="." index="1"]
 position = Vector2(0, -18)

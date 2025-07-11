@@ -16,20 +16,23 @@ func _ready() -> void:
 	timer.timeout.connect(on_timeout)
 	timer.start()
 func on_timeout() -> void:
-	add_money()
-	add_energy()
+	add_money(10)
+	add_energy(-1)
 	if is_pollution:
-		add_pollution()
+		add_pollution(1)
 
-func add_money() -> void:
+func add_money(quantity: int) -> void:
 	money_up.show()
 	money_anim.play("gather")
-func add_energy() -> void:
+	PSGamemanager.add_money(quantity)
+func add_energy(quantity: int) -> void:
 	energy_down.show()
 	energy_anim.play("gather")
-func add_pollution() -> void:
+	PSGamemanager.add_energy(quantity)
+func add_pollution(quantity: int) -> void:
 	pollution_up.show()
 	pollution_anim.play("gather")
+	PSGamemanager.add_pollution(quantity)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

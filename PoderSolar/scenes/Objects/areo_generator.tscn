@@ -45,6 +45,9 @@ _data = {
 }
 
 [node name="AreoGenerator" instance=ExtResource("1_eeiej")]
+cost = 150
+sell_price = 40
+energy = 1
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("2_ao1sk")

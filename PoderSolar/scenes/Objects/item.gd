@@ -17,6 +17,7 @@ var is_hovering: bool = false
 var is_instantiated: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	money_label.text = str(sell_price)
 	sell_button.hide()
 	timer.timeout.connect(on_timeout)
 	hit_box.mouse_entered.connect(on_mouse_entered)
@@ -36,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		
 func on_timeout() -> void:
 	animation_player.play("on_gathered")
-
+	on_resource_gathered(money, energy, pollution)
 func on_mouse_entered() -> void:
 	is_hovering = true
 	if is_instantiated:
@@ -50,12 +51,20 @@ func on_mouse_exited() -> void:
 func on_pressed() ->void:
 	audio_sell.play()
 	timer.stop()
+	on_sell(sell_price)
 	sell_button.hide()
 	animation_player.play("on_sell")
 	await  animation_player.animation_finished
 	queue_free()
 	
+func on_sell(money: int) -> void:
+	PSGamemanager.add_money(money)
 	
+func on_resource_gathered(money, energy, pollution):
+	PSGamemanager.add_energy(money)
+	PSGamemanager.add_energy(energy)
+	PSGamemanager.add_pollution(pollution)
+
 	
 	
 	

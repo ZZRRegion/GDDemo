@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_down.svg" id="3_obcve"]
 
 [node name="Tree" instance=ExtResource("1_a5n3p")]
+cost = 50
+sell_price = 10
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("2_obcve")

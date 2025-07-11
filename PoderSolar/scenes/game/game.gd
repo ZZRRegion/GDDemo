@@ -24,4 +24,7 @@ func on_start_level() -> void:
 	await  moon_tw.finished
 	PSGamemanager.pause_game()
 	PSGamemanager.current_level += 1
-	load_slides(PSGamemanager.current_level)
+	if PSGamemanager.current_level >= 3:
+		PSGamemanager.load_end_screen(PSGamemanager.End_States.WIN)
+	else:
+		load_slides(PSGamemanager.current_level)

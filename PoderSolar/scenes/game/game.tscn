@@ -29,12 +29,15 @@ centered = false
 [node name="Panel" parent="." instance=ExtResource("1_cpr5c")]
 
 [node name="BuyTree" parent="Panel/MarginContainer/HBoxContainer" index="1" node_paths=PackedStringArray("world")]
+money_cost = 50
 world = NodePath("../../../../World")
 
 [node name="BuyCoal" parent="Panel/MarginContainer/HBoxContainer" index="2" node_paths=PackedStringArray("world")]
+money_cost = 100
 world = NodePath("../../../../World")
 
 [node name="BuyAreo" parent="Panel/MarginContainer/HBoxContainer" index="3" node_paths=PackedStringArray("world")]
+money_cost = 150
 world = NodePath("../../../../World")
 
 [node name="World" type="Node2D" parent="."]
