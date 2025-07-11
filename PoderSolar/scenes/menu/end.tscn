@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj6udki0r6r1d"]
+
+[ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://PoderSolar/assets/sprites/menus/play_button.svg" id="1_cqubc"]
+[ext_resource type="Script" uid="uid://daxaur472lht6" path="res://PoderSolar/scenes/menu/end.gd" id="1_hfst2"]
+[ext_resource type="Texture2D" uid="uid://domjgyedkfrcj" path="res://PoderSolar/assets/sprites/slides/win.jpg" id="1_kcx6s"]
+[ext_resource type="PackedScene" uid="uid://bdt51yg0tvlpq" path="res://PoderSolar/scenes/menu/Menu.tscn" id="2_ym7l7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kcx6s"]
+texture = ExtResource("1_cqubc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfst2"]
+texture = ExtResource("1_cqubc")
+modulate_color = Color(0.176471, 0.203922, 0.439216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym7l7"]
+texture = ExtResource("1_cqubc")
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hfst2")
+menu_scene = ExtResource("2_ym7l7")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kcx6s")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -58.0
+offset_right = 21.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Title"
+
+[node name="Desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Description"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -243.0
+offset_right = 106.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_kcx6s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hfst2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ym7l7")

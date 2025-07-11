@@ -1,6 +1,7 @@
 extends Node
 @onready var moon: Sprite2D = $Moon
 @onready var slides: Control = $Slides
+@onready var city: Node2D = $City
 
 
 
@@ -16,6 +17,7 @@ func load_slides(level: int) ->void:
 	
 func on_start_level() -> void:
 	PSGamemanager.run_game()
+	city.setup_city()
 	var moon_tw = create_tween()
 	moon.position.x = 75.0
 	moon_tw.tween_property(moon, "position:x", 750, 60)

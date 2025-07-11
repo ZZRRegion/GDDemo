@@ -14,7 +14,6 @@ var is_pollution: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.timeout.connect(on_timeout)
-	setup_city()
 	timer.start()
 func on_timeout() -> void:
 	add_money()

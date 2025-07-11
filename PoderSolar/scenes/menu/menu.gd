@@ -8,4 +8,5 @@ func _ready() -> void:
 	button.pressed.connect(on_pressed)
 
 func on_pressed() -> void:
+	PSGamemanager.reset()
 	get_tree().change_scene_to_packed(game_scene)
