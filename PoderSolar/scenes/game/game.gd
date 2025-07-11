@@ -10,7 +10,10 @@ func _ready() -> void:
 	PSGamemanager.appoint_rect = $ColorRect.get_global_rect()
 	PSGamemanager.start_level.connect(on_start_level)
 	PSGamemanager.pause_game()
-	load_slides(PSGamemanager.current_level)
+	if OS.is_debug_build():
+		PSGamemanager.start_level.emit()
+	else:
+		load_slides(PSGamemanager.current_level)
 
 func load_slides(level: int) ->void:
 	slides.show()
