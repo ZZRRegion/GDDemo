@@ -4,7 +4,7 @@ signal start_level
 signal money_change
 signal pollution_change
 signal  energy_change
-
+var appoint_rect: Rect2
 var end_scene: PackedScene = load("res://PoderSolar/scenes/menu/end.tscn")
 enum End_States {
 	WIN,

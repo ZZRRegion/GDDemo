@@ -27,9 +27,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_instantiated:
 		global_position = get_global_mouse_position()
+		if not can_placed():
+			self.modulate = Color.RED
+		else:
+			modulate = Color.WHITE
+			
 	
+func can_placed() -> bool:
+	return PSGamemanager.appoint_rect.has_point(get_global_mouse_position())
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("click") and not is_instantiated:
+	if event.is_action_released("click") and not is_instantiated and can_placed():
 		is_instantiated = true
 		audio.play()
 		timer.start()

@@ -7,6 +7,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PSGamemanager.appoint_rect = $ColorRect.get_global_rect()
 	PSGamemanager.start_level.connect(on_start_level)
 	PSGamemanager.pause_game()
 	load_slides(PSGamemanager.current_level)
