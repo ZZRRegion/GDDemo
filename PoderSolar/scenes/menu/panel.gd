@@ -5,6 +5,8 @@ extends Panel
 @onready var buy_tree: Button = $MarginContainer/HBoxContainer/BuyTree
 @onready var buy_coal: Button = $MarginContainer/HBoxContainer/BuyCoal
 @onready var buy_areo: Button = $MarginContainer/HBoxContainer/BuyAreo
+@onready var pollution_value: Label = $MarginContainer/HBoxContainer/VBoxContainer/PollutionHB/PollutionValue
+@onready var energy_value: Label = $MarginContainer/HBoxContainer/VBoxContainer/EnergyHB/EnergyValue
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,5 +23,7 @@ func on_money_change() -> void:
 	
 func on_energy_change() -> void:
 	energy_slider.value = PSGamemanager.energy
+	energy_value.text = str(PSGamemanager.energy)
 func on_pollution_change() -> void:
 	pollution_slider.value = PSGamemanager.pollution
+	pollution_value.text = str(PSGamemanager.pollution)

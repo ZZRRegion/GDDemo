@@ -42,6 +42,7 @@ func _input(event: InputEvent) -> void:
 		is_instantiated = true
 		audio.play()
 		timer.start()
+		PSGamemanager.add_money(-cost)
 		animation_player.play("on_placed")
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:

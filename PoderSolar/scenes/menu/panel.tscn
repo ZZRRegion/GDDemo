@@ -86,6 +86,10 @@ size_flags_vertical = 4
 texture = ExtResource("2_3lwts")
 stretch_mode = 2
 
+[node name="EnergyValue" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/EnergyHB"]
+layout_mode = 2
+text = "0"
+
 [node name="PollutionHB" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -113,6 +117,10 @@ layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("6_asskp")
 stretch_mode = 2
+
+[node name="PollutionValue" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/PollutionHB"]
+layout_mode = 2
+text = "0"
 
 [node name="MoneyHB" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
