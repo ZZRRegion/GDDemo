@@ -71,6 +71,7 @@ _data = {
 cost = 100
 sell_price = 20
 energy = 1
+pollution = 1
 
 [node name="Image" parent="." index="1"]
 position = Vector2(0, -18)

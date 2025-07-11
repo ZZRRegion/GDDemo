@@ -5,7 +5,7 @@ signal money_change
 signal pollution_change
 signal  energy_change
 
-var end_scene = load("res://PoderSolar/scenes/menu/end.tscn")
+var end_scene: PackedScene = load("res://PoderSolar/scenes/menu/end.tscn")
 enum End_States {
 	WIN,
 	LOOSE_POLLUTION,
@@ -55,7 +55,7 @@ func add_energy(quantity: int) -> void:
 		load_end_screen(End_States.LOOSE_ENGERGY_OUT)
 
 func load_end_screen(_end_state: End_States):
-	end_scene = _end_state
+	end_state = _end_state
 	get_tree().change_scene_to_packed(end_scene)
 	
 	

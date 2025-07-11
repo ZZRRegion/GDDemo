@@ -7,6 +7,7 @@
 [node name="Tree" instance=ExtResource("1_a5n3p")]
 cost = 50
 sell_price = 10
+pollution = -1
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("2_obcve")
