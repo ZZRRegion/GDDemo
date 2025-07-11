@@ -1,7 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://b34coq4nepnyj"]
+[gd_scene load_steps=16 format=3 uid="uid://b34coq4nepnyj"]
 
 [ext_resource type="Texture2D" uid="uid://ca8kpphi44wvq" path="res://Topdown/Assets/Items/bullet.png" id="1_g7wdp"]
 [ext_resource type="Script" uid="uid://y3ckxq7fu2dv" path="res://Topdown/Scenes/projectile.gd" id="1_gi8p3"]
+[ext_resource type="Texture2D" uid="uid://d0x541frbku0g" path="res://Topdown/Assets/Items/ImpactEffect.png" id="2_0jact"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b72m6"]
+atlas = ExtResource("2_0jact")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb0xv"]
+atlas = ExtResource("2_0jact")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kir42"]
+atlas = ExtResource("2_0jact")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frmyu"]
+atlas = ExtResource("2_0jact")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4awe2"]
+atlas = ExtResource("2_0jact")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4ox2"]
+atlas = ExtResource("2_0jact")
+region = Rect2(170, 0, 34, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gi8p3"]
 atlas = ExtResource("1_g7wdp")
@@ -21,6 +46,29 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b72m6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b72m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb0xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kir42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frmyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4awe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4ox2")
+}],
+"loop": false,
+"name": &"boom",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gi8p3")
@@ -48,12 +96,14 @@ script = ExtResource("1_gi8p3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_b72m6")
+animation = &"boom"
 autoplay = "default"
-frame_progress = 0.415039
 
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 8
 visibility_layer = 6
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 8

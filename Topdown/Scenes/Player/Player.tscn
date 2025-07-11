@@ -162,6 +162,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_dcxfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -180,4 +181,4 @@ script = ExtResource("3_if31p")
 projectile = ExtResource("4_ttmni")
 
 [node name="ShootTImer" type="Timer" parent="ShootAttack"]
-wait_time = 0.5
+wait_time = 0.1
