@@ -1,0 +1,282 @@
+[gd_scene load_steps=17 format=3 uid="uid://d2md1f6jvvtbk"]
+
+[ext_resource type="Script" uid="uid://baux24ub7k187" path="res://PoderSolar/scenes/game/city.gd" id="1_c55gr"]
+[ext_resource type="Texture2D" uid="uid://bd3j81kqyfugv" path="res://PoderSolar/assets/sprites/gameplay/city.png" id="1_og6ov"]
+[ext_resource type="Texture2D" uid="uid://5nh6yf46lflh" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/money_up.svg" id="2_mtybu"]
+[ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/pollution_up.svg" id="3_s20fm"]
+[ext_resource type="Texture2D" uid="uid://dnyty6l6hnst7" path="res://PoderSolar/assets/sprites/ui/gather_resource_icons/energy_down.svg" id="4_ht1jh"]
+[ext_resource type="Texture2D" uid="uid://df6vo4dbl6aap" path="res://PoderSolar/assets/sprites/gameplay/concert_light.png" id="5_ht1jh"]
+[ext_resource type="Texture2D" uid="uid://bppq8tuj7vt3j" path="res://PoderSolar/assets/sprites/gameplay/pollution.png" id="6_vv0ii"]
+
+[sub_resource type="Animation" id="Animation_mtybu"]
+resource_name = "gather"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+
+[sub_resource type="Animation" id="Animation_vv0ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jf6kw"]
+_data = {
+&"RESET": SubResource("Animation_vv0ii"),
+&"gather": SubResource("Animation_mtybu")
+}
+
+[sub_resource type="Animation" id="Animation_ht1jh"]
+resource_name = "concert"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 3, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-3.14159, -3.49066, -2.79253, -3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.866667, 3, 3.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.304514, 0.604224, 0.331313, 1), Color(0.868197, 0.548955, 0.643343, 1), Color(0.765008, 0.954897, 0.605401, 1), Color(0.305882, 0.603922, 0.329412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c55gr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uxllc"]
+_data = {
+&"RESET": SubResource("Animation_c55gr"),
+&"concert": SubResource("Animation_ht1jh")
+}
+
+[sub_resource type="Animation" id="Animation_uxllc"]
+resource_name = "pollution"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_32jb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uct8r"]
+_data = {
+&"RESET": SubResource("Animation_32jb6"),
+&"pollution": SubResource("Animation_uxllc")
+}
+
+[node name="City" type="Node2D"]
+script = ExtResource("1_c55gr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_og6ov")
+
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="MoneyUp" type="Sprite2D" parent="Icons"]
+visible = false
+position = Vector2(-40, 0)
+texture = ExtResource("2_mtybu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icons/MoneyUp"]
+libraries = {
+&"": SubResource("AnimationLibrary_jf6kw")
+}
+
+[node name="PollutionUp" type="Sprite2D" parent="Icons"]
+visible = false
+texture = ExtResource("3_s20fm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icons/PollutionUp"]
+libraries = {
+&"": SubResource("AnimationLibrary_jf6kw")
+}
+
+[node name="EnergyDown" type="Sprite2D" parent="Icons"]
+visible = false
+position = Vector2(40, 0)
+texture = ExtResource("4_ht1jh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icons/EnergyDown"]
+libraries = {
+&"": SubResource("AnimationLibrary_jf6kw")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ConcertLight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-60, -29)
+rotation = -3.14159
+texture = ExtResource("5_ht1jh")
+offset = Vector2(-100, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ConcertLight"]
+libraries = {
+&"": SubResource("AnimationLibrary_uxllc")
+}
+autoplay = "concert"
+
+[node name="Pollution" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_vv0ii")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pollution"]
+libraries = {
+&"": SubResource("AnimationLibrary_uct8r")
+}
+autoplay = "pollution"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
