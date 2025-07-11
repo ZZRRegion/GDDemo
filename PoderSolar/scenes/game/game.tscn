@@ -26,6 +26,8 @@ position = Vector2(2, 89)
 texture = ExtResource("2_ho6vc")
 centered = false
 
+[node name="World" type="Node2D" parent="."]
+
 [node name="Panel" parent="." instance=ExtResource("1_cpr5c")]
 
 [node name="BuyTree" parent="Panel/MarginContainer/HBoxContainer" index="1" node_paths=PackedStringArray("world")]
@@ -39,8 +41,6 @@ world = NodePath("../../../../World")
 [node name="BuyAreo" parent="Panel/MarginContainer/HBoxContainer" index="3" node_paths=PackedStringArray("world")]
 money_cost = 150
 world = NodePath("../../../../World")
-
-[node name="World" type="Node2D" parent="."]
 
 [node name="City" parent="." instance=ExtResource("7_jgabf")]
 position = Vector2(74, 337)
