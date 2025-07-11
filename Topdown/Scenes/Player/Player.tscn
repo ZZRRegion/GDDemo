@@ -1,7 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cf8kf15int3lc"]
+[gd_scene load_steps=27 format=3 uid="uid://cf8kf15int3lc"]
 
 [ext_resource type="Script" uid="uid://bsrc7nskg7jv3" path="res://Topdown/Scenes/Player/player.gd" id="1_dcxfl"]
 [ext_resource type="Texture2D" uid="uid://bcnrtfpct35el" path="res://Topdown/Assets/Player/knight.png" id="1_rg2aa"]
+[ext_resource type="Script" uid="uid://b0qv0bn64vofd" path="res://Topdown/Scenes/Player/shoot_attack.gd" id="3_if31p"]
+[ext_resource type="PackedScene" uid="uid://b34coq4nepnyj" path="res://Topdown/Scenes/Projectile.tscn" id="4_ttmni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcxfl"]
 size = Vector2(14, 18)
@@ -170,4 +172,11 @@ shape = SubResource("RectangleShape2D_dcxfl")
 sprite_frames = SubResource("SpriteFrames_rqlo3")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.228156
+frame_progress = 0.87838
+
+[node name="ShootAttack" type="Node2D" parent="."]
+script = ExtResource("3_if31p")
+projectile = ExtResource("4_ttmni")
+
+[node name="ShootTImer" type="Timer" parent="ShootAttack"]
+wait_time = 0.5
