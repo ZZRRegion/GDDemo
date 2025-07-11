@@ -87,8 +87,9 @@ texture = ExtResource("2_3lwts")
 stretch_mode = 2
 
 [node name="EnergyValue" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/EnergyHB"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "0"
+text = "00"
 
 [node name="PollutionHB" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -119,8 +120,9 @@ texture = ExtResource("6_asskp")
 stretch_mode = 2
 
 [node name="PollutionValue" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/PollutionHB"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "0"
+text = "00"
 
 [node name="MoneyHB" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

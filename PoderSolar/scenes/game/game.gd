@@ -3,10 +3,12 @@ extends Node
 @onready var slides: Control = $Slides
 @onready var city: Node2D = $City
 
-
+# 单位s
+@export var GAME_TIME: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_window().title = "环保家"
 	PSGamemanager.appoint_rect = $ColorRect.get_global_rect()
 	PSGamemanager.start_level.connect(on_start_level)
 	PSGamemanager.pause_game()
@@ -24,7 +26,7 @@ func on_start_level() -> void:
 	city.setup_city()
 	var moon_tw = create_tween()
 	moon.position.x = 75.0
-	moon_tw.tween_property(moon, "position:x", 750, 60)
+	moon_tw.tween_property(moon, "position:x", 750, GAME_TIME)
 	await  moon_tw.finished
 	PSGamemanager.pause_game()
 	PSGamemanager.current_level += 1
