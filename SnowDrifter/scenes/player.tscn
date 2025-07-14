@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b16663xhlxfjt"]
+[gd_scene load_steps=7 format=3 uid="uid://b16663xhlxfjt"]
 
 [ext_resource type="Texture2D" uid="uid://dc58j7gviomfx" path="res://SnowDrifter/assets/sprites/skiier.png" id="1_6htca"]
 [ext_resource type="Script" uid="uid://dnr47pjt5updd" path="res://SnowDrifter/scenes/player.gd" id="1_nmlxs"]
+[ext_resource type="Script" uid="uid://baa5vwf1wurlq" path="res://SnowDrifter/scenes/line_2d.gd" id="3_ycfqg"]
+[ext_resource type="Texture2D" uid="uid://lve4ix3uska3" path="res://SnowDrifter/assets/sprites/snow_trail.png" id="4_4klhp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmlxs"]
 radius = 6.0
+
+[sub_resource type="Gradient" id="Gradient_71k15"]
+offsets = PackedFloat32Array(0, 0.48, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_nmlxs")
@@ -15,3 +21,37 @@ hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nmlxs")
+
+[node name="TrackPoint_1" type="Node2D" parent="."]
+z_index = -10
+position = Vector2(-10, 3)
+
+[node name="Line2D" type="Line2D" parent="TrackPoint_1" node_paths=PackedStringArray("player")]
+width = 3.0
+script = ExtResource("3_ycfqg")
+player = NodePath("../..")
+
+[node name="TrackPoint_2" type="Node2D" parent="."]
+z_index = -10
+position = Vector2(-10, 7)
+
+[node name="Line2D" type="Line2D" parent="TrackPoint_2" node_paths=PackedStringArray("player")]
+width = 3.0
+script = ExtResource("3_ycfqg")
+side = 1
+player = NodePath("../..")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="SprayTrail" type="CPUParticles2D" parent="Particles"]
+position = Vector2(-10, 0)
+amount = 25
+texture = ExtResource("4_4klhp")
+lifetime = 2.0
+lifetime_randomness = 1.0
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_max = 90.0
+color_ramp = SubResource("Gradient_71k15")
