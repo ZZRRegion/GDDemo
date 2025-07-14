@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://k5fhci30pvqi"]
+[gd_scene load_steps=4 format=3 uid="uid://k5fhci30pvqi"]
 
 [ext_resource type="Script" uid="uid://bg2ytx8pxggg7" path="res://SnowDrifter/scenes/game.gd" id="1_n4khj"]
+[ext_resource type="Script" uid="uid://bh6uq1dwyf6qv" path="res://SnowDrifter/scenes/camera_follow.gd" id="2_3l1cf"]
 [ext_resource type="PackedScene" uid="uid://b16663xhlxfjt" path="res://SnowDrifter/scenes/player.tscn" id="2_52tam"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_n4khj")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_3l1cf")
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_52tam")]

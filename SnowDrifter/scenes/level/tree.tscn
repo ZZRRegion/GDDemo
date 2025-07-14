@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx7a32ik1j3lp"]
+
+[ext_resource type="Texture2D" uid="uid://blb7j4a6876ud" path="res://SnowDrifter/assets/sprites/tree.png" id="1_5gjk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gjk0"]
+radius = 6.0
+
+[node name="tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("1_5gjk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5gjk0")
