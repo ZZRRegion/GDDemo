@@ -13,6 +13,7 @@ func _ready() -> void:
 		tab_container.set_tab_title(i, tab_items[i])
 	var url := "http://192.168.1.1/"
 	url = "https://hosts.gitcdn.top/hosts.txt"
+	url = "https://www.baidu.com"
 	var error := http_request.request(url)
 	if error == OK:
 		print("请求成功")
@@ -26,7 +27,8 @@ func _on_animation_check_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	print("接收")
+	print("接收到了")
 	print(result)
-	print(body)
+	print(response_code)
 	print(headers)
+	print(body.get_string_from_utf8())
