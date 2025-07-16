@@ -1,8 +1,15 @@
-[gd_scene load_steps=43 format=4 uid="uid://cwv6xqaoxes8b"]
+[gd_scene load_steps=54 format=4 uid="uid://cwv6xqaoxes8b"]
 
 [ext_resource type="Script" uid="uid://cqhtg1fhxq562" path="res://FetchGithub/main.gd" id="1_aw4oe"]
 [ext_resource type="ButtonGroup" uid="uid://cub3oqvhc5bdv" path="res://FetchGithub/new_button_group.tres" id="2_ncbmc"]
-[ext_resource type="Texture2D" uid="uid://dikgr63qfbu5w" path="res://icon.svg" id="3_k1wn4"]
+[ext_resource type="Texture2D" uid="uid://b4ggn0s25jgmi" path="res://run_animation/run-1.png" id="3_ky00m"]
+[ext_resource type="Texture2D" uid="uid://bl68yl2l44qk" path="res://run_animation/run-2.png" id="4_pu1eq"]
+[ext_resource type="Texture2D" uid="uid://bmv7xei1fn5w5" path="res://run_animation/run-3.png" id="5_y81bh"]
+[ext_resource type="Texture2D" uid="uid://34p44r7oy47m" path="res://run_animation/run-4.png" id="6_l3hx0"]
+[ext_resource type="Texture2D" uid="uid://droe0q6f0gim0" path="res://run_animation/run-5.png" id="7_ype6i"]
+[ext_resource type="Texture2D" uid="uid://bfsi66o564d8m" path="res://run_animation/run-6.png" id="8_uk83j"]
+[ext_resource type="Texture2D" uid="uid://b6iqpisbnbcem" path="res://run_animation/run-7.png" id="9_dml7d"]
+[ext_resource type="Texture2D" uid="uid://bcy50qq2kl27q" path="res://run_animation/run-8.png" id="10_wwh50"]
 
 [sub_resource type="Image" id="Image_ncbmc"]
 data = {
@@ -2104,6 +2111,76 @@ TextEdit/styles/read_only = SubResource("StyleBoxFlat_dml7d")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw4oe"]
 bg_color = Color(0.0980392, 0.105882, 0.172549, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_wt184"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ky00m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pu1eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y81bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l3hx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ype6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uk83j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dml7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wwh50")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="Animation" id="Animation_ky00m"]
+resource_name = "run"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(1920, 600)]
+}
+
+[sub_resource type="Animation" id="Animation_pu1eq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y81bh"]
+_data = {
+&"RESET": SubResource("Animation_pu1eq"),
+&"run": SubResource("Animation_ky00m")
+}
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -2302,22 +2379,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/AboutPanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 400)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer/Panel"]
-self_modulate = Color(1, 1, 1, 0.333333)
-layout_mode = 2
-texture = ExtResource("3_k1wn4")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer/Panel"]
-layout_mode = 2
-text = "Hosts"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
@@ -2355,3 +2416,28 @@ text = "反馈建议"
 [node name="Button3" type="Button" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "检查更新"
+
+[node name="AnimationCheckBox" type="CheckBox" parent="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "关闭动画"
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(0, 200)
+scale = Vector2(4.71127, 4.05224)
+sprite_frames = SubResource("SpriteFrames_wt184")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.980733
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
+libraries = {
+&"": SubResource("AnimationLibrary_y81bh")
+}
+autoplay = "run"
+
+[connection signal="toggled" from="TabContainer/AboutPanelContainer/MarginContainer/VBoxContainer/HBoxContainer/AnimationCheckBox" to="." method="_on_animation_check_box_toggled"]
