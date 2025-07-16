@@ -6,7 +6,7 @@ const scale_num: int = 3
 func _ready() -> void:
 	var win := get_window()
 	win.title = "时间"
-	win.size /= scale_num
+	win.size = Vector2(1920, 1080) / scale_num
 	self.scale = Vector2(scale_num, scale_num)
 	var screen_size := DisplayServer.screen_get_size()
 	win.position = (screen_size - win.size) / 2
