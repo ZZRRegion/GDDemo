@@ -1,45 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://vnb5cvrjkp8x"]
+[gd_scene load_steps=2 format=3 uid="uid://vnb5cvrjkp8x"]
 
 [ext_resource type="Script" uid="uid://bjsbjj7pt3la5" path="res://main.gd" id="1_r0du0"]
-[ext_resource type="Texture2D" uid="uid://cf5si60ocrg2e" path="res://2d_animation_frog_spritesheet.webp" id="1_uu6xs"]
-[ext_resource type="Texture2D" uid="uid://b4dbmck7ljwlf" path="res://2d_animation_player-run.webp" id="2_r0du0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
-size = Vector2(76, 61)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0du0"]
-size = Vector2(78, 83)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_r0du0")
 
-[node name="Player" type="Area2D" parent="."]
-position = Vector2(852, 605)
-collision_layer = 2
-collision_mask = 0
-metadata/_edit_group_ = true
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 521.0
+offset_top = 262.0
+offset_right = 1187.0
+offset_bottom = 759.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(3.5, 10)
-shape = SubResource("RectangleShape2D_cm0pq")
+[node name="Button" type="Button" parent="."]
+offset_left = 521.0
+offset_top = 418.0
+offset_right = 1003.0
+offset_bottom = 615.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_uu6xs")
-hframes = 4
-vframes = 2
-
-[node name="Enery" type="CharacterBody2D" parent="."]
-position = Vector2(570, 587)
-collision_mask = 0
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enery"]
-position = Vector2(-3, 16.5)
-shape = SubResource("RectangleShape2D_r0du0")
-
-[node name="2dAnimationPlayer-run" type="Sprite2D" parent="Enery"]
-scale = Vector2(4, 4)
-texture = ExtResource("2_r0du0")
-hframes = 6
-
-[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
