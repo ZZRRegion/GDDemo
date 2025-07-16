@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4c6dw8htecxs"]
+
+[ext_resource type="Script" uid="uid://df8t48a0iynft" path="res://SnowDrifter/scenes/level/level.gd" id="1_i2k2b"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_i2k2b")

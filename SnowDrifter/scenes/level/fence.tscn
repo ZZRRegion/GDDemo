@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://chmf3kb18ecbk"]
+
+[ext_resource type="Texture2D" uid="uid://d3jjfong36v1g" path="res://SnowDrifter/assets/sprites/fence.png" id="1_u1y06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stci5"]
+size = Vector2(6, 32)
+
+[node name="fence" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u1y06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_stci5")

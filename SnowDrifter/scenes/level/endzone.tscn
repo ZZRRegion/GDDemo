@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chg7uiigx20pf"]
+
+[ext_resource type="Script" uid="uid://cyoqkkrr2tglo" path="res://SnowDrifter/scenes/level/endzone.gd" id="1_ftsg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvju8"]
+
+[node name="endzone" type="Area2D"]
+script = ExtResource("1_ftsg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kvju8")

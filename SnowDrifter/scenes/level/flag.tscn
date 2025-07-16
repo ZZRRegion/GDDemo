@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca0c1qe5dqwkk"]
+
+[ext_resource type="Texture2D" uid="uid://cwjam6u1td5sa" path="res://SnowDrifter/assets/sprites/flag.png" id="1_rjpkv"]
+
+[node name="flag" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rjpkv")
