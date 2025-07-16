@@ -2206,10 +2206,9 @@ theme = SubResource("Theme_ncbmc")
 theme_override_colors/font_selected_color = Color(0, 0.537255, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/panel = SubResource("StyleBoxFlat_aw4oe")
-current_tab = 2
+current_tab = 0
 
 [node name="ClientPanelContainer" type="PanelContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -2267,6 +2266,7 @@ text = "Hosts源"
 [node name="OptionButton" type="OptionButton" parent="TabContainer/ClientPanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+selected = 0
 item_count = 2
 popup/item_0/text = "FetchGithubHosts"
 popup/item_0/id = 0
@@ -2375,6 +2375,7 @@ bbcode_enabled = true
 text = "[b]很好[/b]"
 
 [node name="AboutPanelContainer" type="PanelContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -2437,7 +2438,7 @@ scale = Vector2(4.71127, 4.05224)
 sprite_frames = SubResource("SpriteFrames_wt184")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.176673
+frame_progress = 0.612914
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
 libraries = {
