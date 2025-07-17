@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=3 uid="uid://caxtv7qkhstfh"]
+
+[ext_resource type="Script" uid="uid://d1pxn2xr31f07" path="res://UI/main.gd" id="1_vnck2"]
+[ext_resource type="Texture2D" uid="uid://dikgr63qfbu5w" path="res://icon.svg" id="2_emhnf"]
+[ext_resource type="Texture2D" uid="uid://bl68yl2l44qk" path="res://run_animation/run-2.png" id="3_uw6j2"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vnck2")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "切换"
+
+[node name="LabelColor" type="Label" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "颜色："
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CheckButton2" type="CheckButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "测试"
+
+[node name="MenuButton" type="MenuButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "按钮菜单"
+item_count = 2
+popup/item_0/text = "三等分"
+popup/item_0/id = 0
+popup/item_1/text = "是否"
+popup/item_1/id = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "第一"
+popup/item_0/id = 0
+popup/item_1/text = "第二"
+popup/item_1/id = 1
+
+[node name="LinkButton" type="LinkButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "百度网站"
+uri = "https://www.baidu.com"
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_emhnf")
+texture_hover = ExtResource("3_uw6j2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "写入"
+placeholder_text = "很好"
+
+[node name="CodeEdit" type="CodeEdit" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "CodeEdit"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 0.294118, 1, 1)
+
+[node name="HSlider" type="HSlider" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 60.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+item_count = 3
+item_0/text = "第一"
+item_1/text = "第二"
+item_2/text = "第三"
+
+[node name="Label" type="Label" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "说明"
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "LineEdit"
+
+[node name="MenuBar" type="MenuBar" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4/MenuBar"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 43.0
+text = "点击"
+
+[node name="Button2" type="Button" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4/MenuBar"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 138.0
+offset_bottom = 83.0
+text = "点击"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("3_uw6j2")
+
+[node name="Panel" type="Panel" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="TabContainer/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+editor_only = false
+
+[connection signal="color_changed" from="TabContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]

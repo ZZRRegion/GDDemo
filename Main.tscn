@@ -4,17 +4,3 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_r0du0")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 521.0
-offset_top = 262.0
-offset_right = 1187.0
-offset_bottom = 759.0
-
-[node name="Button" type="Button" parent="."]
-offset_left = 521.0
-offset_top = 418.0
-offset_right = 1003.0
-offset_bottom = 615.0
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

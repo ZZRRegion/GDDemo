@@ -1,11 +1,10 @@
 extends Node
-@onready var color_rect: ColorRect = $ColorRect
+@onready var box_container: BoxContainer = $BoxContainer
+@onready var v_box_container: VBoxContainer = $VBoxContainer
+@onready var h_flow_container: HFlowContainer = $HFlowContainer
+@onready var panel_container: PanelContainer = $PanelContainer
 
 func _ready() -> void:
-	print(ResourceUID.create_id())
-	print(ResourceUID.create_id())
-	print(ResourceUID.id_to_text(22255555))
-
+	pass
 func _on_button_pressed() -> void:
-	get_tree().quit(11)
 	pass # Replace with function body.
