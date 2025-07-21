@@ -24,7 +24,7 @@ func _ready() -> void:
 	sell_button.mouse_exited.connect(on_mouse_exited)
 	sell_button.pressed.connect(on_pressed)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not is_instantiated:
 		global_position = get_global_mouse_position()
 		if not can_placed():
@@ -74,13 +74,13 @@ func on_pressed() ->void:
 	await  animation_player.animation_finished
 	queue_free()
 	
-func on_sell(money: int) -> void:
-	PSGamemanager.add_money(money)
+func on_sell(_money: int) -> void:
+	PSGamemanager.add_money(_money)
 	
-func on_resource_gathered(money, energy, pollution):
-	PSGamemanager.add_money(money)
-	PSGamemanager.add_energy(energy)
-	PSGamemanager.add_pollution(pollution)
+func on_resource_gathered(_money, _energy, _pollution):
+	PSGamemanager.add_money(_money)
+	PSGamemanager.add_energy(_energy)
+	PSGamemanager.add_pollution(_pollution)
 
 	
 	

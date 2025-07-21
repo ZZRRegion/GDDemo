@@ -37,7 +37,7 @@ func add_pollution(quantity: int) -> void:
 	pollution_anim.play("gather")
 	PSGamemanager.add_pollution(quantity)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func setup_city() -> void:

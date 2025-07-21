@@ -65,5 +65,5 @@ func load_slide(level: int, slide: int) ->void:
 	texture_rect.texture = load(game_slides[level][slide].image)
 	rich_text_label.text = game_slides[level][slide].text
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

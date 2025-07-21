@@ -67,5 +67,6 @@ func load_end_screen(_end_state: End_States):
 	end_state = _end_state
 	get_tree().change_scene_to_packed(end_scene)
 	
-	
+func on_start_level() -> void:
+	start_level.emit()
 	
