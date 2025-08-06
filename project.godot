@@ -28,7 +28,8 @@ Bgm="*res://AssetBundle/bgm.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/mode=4
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
