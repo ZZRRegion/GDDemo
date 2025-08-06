@@ -1,5 +1,9 @@
 # 介绍
 本项目记录学习Godot的练习项目
+## 2025-8-6
+[视频教程](https://www.bilibili.com/video/BV1JuCrYcEvJ?spm_id_from=333.788.player.switch&vd_source=cec4af787ac4b582aa4bae17ac26d596)
+https://merxon22.github.io/GodotArchive/zh/posts/beginner_2d/
+想在2025年做游戏？用Godot做出你的第一个2D游戏吧
 ## 2025-7-11
 [视频教程](https://www.bilibili.com/video/BV1uXLRz8EWk/?spm_id_from=333.1387.favlist.content.click&vd_source=cec4af787ac4b582aa4bae17ac26d596)  
 【Godot零基础】从零开始制作俯视角射击游戏-01-制作玩家和动画

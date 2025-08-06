@@ -11,10 +11,8 @@ config_version=5
 [application]
 
 config/name="Demo"
-config/description="Godot引擎学习示例"
-config/version="1.0.0.1"
-run/main_scene="uid://vnb5cvrjkp8x"
-config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+run/main_scene="uid://dmfj40wc0q80h"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -29,13 +27,15 @@ PSGamemanager="*res://PoderSolar/scenes/gamemanager.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Demo"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/myplugin/plugin.cfg")
 
 [input]
 
@@ -98,3 +98,4 @@ shoot={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.792157, 0.890196, 0.921569, 1)
