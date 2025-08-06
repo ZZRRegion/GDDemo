@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmfj40wc0q80h"]
+[gd_scene load_steps=7 format=3 uid="uid://dmfj40wc0q80h"]
 
+[ext_resource type="Script" uid="uid://d2cq24v5nyfx2" path="res://AssetBundle/main.gd" id="1_4qe75"]
 [ext_resource type="Texture2D" uid="uid://clyjufy627vgg" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_efvpy"]
-[ext_resource type="PackedScene" uid="uid://bfggqu7blrxpi" path="res://AssetBundle/player.tscn" id="2_ddflh"]
+[ext_resource type="PackedScene" uid="uid://bfggqu7blrxpi" path="res://AssetBundle/ABplayer.tscn" id="2_ddflh"]
+[ext_resource type="PackedScene" uid="uid://c6wnpulwrrouq" path="res://AssetBundle/slimer.tscn" id="3_lrr0o"]
+[ext_resource type="FontFile" uid="uid://blof0xt6xyb1a" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="5_pgjnl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ddflh"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_4qe75")
+slime_scene = ExtResource("3_lrr0o")
 
 [node name="Background1" type="Sprite2D" parent="."]
 texture = ExtResource("1_efvpy")
@@ -20,3 +28,67 @@ zoom = Vector2(2.46, 2.46)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_ddflh")]
+
+[node name="Boundary" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundary"]
+position = Vector2(34, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ddflh")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundary"]
+position = Vector2(-115, -2)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_ddflh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundary"]
+position = Vector2(344, 7)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_ddflh")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundary"]
+position = Vector2(114, 41)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_ddflh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 39.0
+offset_right = 168.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("5_pgjnl")
+theme_override_font_sizes/font_size = 48
+text = "score:0"
+
+[node name="GameOver" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -64.5
+offset_right = 283.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_pgjnl")
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
